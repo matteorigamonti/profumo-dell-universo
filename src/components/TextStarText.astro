@@ -1,0 +1,20 @@
+---
+import Star from "./Star.astro";
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="inline-flex gap-2 items-center">
+  {
+    items.map((item, index) => (
+      <>
+        <p class="text-clay-warm uppercase font-medium">{item}</p>
+        {index < items.length - 1 && <Star />}
+      </>
+    ))
+  }
+</div>

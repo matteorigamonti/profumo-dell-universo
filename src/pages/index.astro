@@ -1,0 +1,83 @@
+---
+import Image from "astro/components/Image.astro";
+import Container from "../components/Container.astro";
+import Grid from "../components/Grid.astro";
+import Star from "../components/Star.astro";
+import TextStarText from "../components/TextStarText.astro";
+import Title from "../components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Container>
+    <Title italic size="xxl">
+      Il profumo dell’<span class="text-blue-royal">Universo</span>
+    </Title>
+    <Image
+      src="/book.png"
+      alt={"Il profumo dell’Universo"}
+      width={100}
+      height={100}
+    />
+
+    <Star />
+    <Star />
+    <Star />
+    <Star />
+
+    <div class="max-w-[820px]">
+      <Title className="text-blue-royal"
+        >“Nel Caffè degli Specchi, tra il richiamo antico dell’Egitto e la magia
+        dei riflessi, Dahlia e Nassim svelano segreti dell’Universo, <span
+          class="italic text-clay-warm"
+          >intrecciando profumi e scienza in una danza di mistero e scoperta.”</span
+        ></Title
+      >
+    </div>
+
+    <div class="space-y-52">
+      <Grid>
+        <div class="space-y-4">
+          <TextStarText
+            items={["Universo e stelle", "Teoria del tutto e scienza"]}
+          />
+          <Title size="md">
+            Il romanzo esplora il cosmo e i misteri dell’universo. Si ispira
+            alle ricerche di Nassim Haramein e alla fisica quantistica.
+          </Title>
+        </div>
+      </Grid>
+
+      <Grid pushEnd>
+        <div class="space-y-4">
+          <TextStarText
+            items={[
+              "Destino e consapevolezza",
+              "Profumi e percezione sensoriale",
+            ]}
+          />
+          <Title size="md">
+            La protagonista ha un talento speciale legato agli odori. È alla
+            ricerca del senso della propria esistenza.
+          </Title>
+        </div>
+      </Grid>
+
+      <Grid>
+        <div class="space-y-4">
+          <TextStarText
+            items={[
+              "Spiritualità e antiche civiltà",
+              "Futurismo e innovazione",
+            ]}
+          />
+          <Title size="md">
+            Il libro tocca temi legati all’Egitto e ai simboli esoterici come il
+            <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo che
+            rappresenti l’universo.
+          </Title>
+        </div>
+      </Grid>
+    </div>
+  </Container>
+</Layout>

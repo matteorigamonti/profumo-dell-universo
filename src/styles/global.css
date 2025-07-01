@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Castoro", sans-serif;
+
+  --color-indigo-dark: #2b274c;
+  --color-blue-royal: #2a3f86;
+  --color-olive-soft: #bfc64d;
+  --color-sand-light: #c5b697;
+  --color-clay-warm: #9e8475;
+
+  --text-xxl: 120px;
+  --text-xl: 80px;
+  --text-lg: 64px;
+  --text-md: 40px;
+  --text-sm: 32px;
+  --text-xs: 24px;
+}

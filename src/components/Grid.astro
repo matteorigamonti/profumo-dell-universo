@@ -1,0 +1,20 @@
+---
+interface Props {
+  pushEnd?: boolean;
+}
+
+const { pushEnd = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex lg:flex-row items-center",
+    {
+      "lg:justify-end": pushEnd,
+    },
+  ]}
+>
+  <div class="grow shrink-0 max-w-[680px]">
+    <slot />
+  </div>
+</div>

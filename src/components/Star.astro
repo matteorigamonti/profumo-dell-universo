@@ -1,0 +1,19 @@
+---
+interface Props {
+  size?: string;
+}
+const { size = 24 } = Astro.props;
+---
+
+<svg
+  width={size + "px"}
+  height={size + "px"}
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  ><path
+    fill="#BFC64D"
+    fill-rule="evenodd"
+    d="M12 24c0-6-6-12-12-12 6 0 12-6 12-12 0 6 6 12 12 12-6 0-12 6-12 12Z"
+    clip-rule="evenodd"></path></svg
+>

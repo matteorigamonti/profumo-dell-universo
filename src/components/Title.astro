@@ -1,0 +1,37 @@
+---
+interface Props {
+  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  size?: "xxl" | "xl" | "lg" | "md" | "sm" | "xs";
+  italic?: boolean;
+  weight?: "normal" | "bold";
+  className?: string;
+}
+
+const {
+  tag = "h3",
+  size = "sm",
+  italic = false,
+  weight = "normal",
+  className = "",
+} = Astro.props;
+const Tag = tag;
+---
+
+<Tag
+  class:list={[
+    "font-serif leading-tight",
+    className,
+    {
+      "text-xxl": size === "xxl",
+      "text-xl": size === "xl",
+      "text-lg": size === "lg",
+      "text-md": size === "md",
+      "text-sm": size === "sm",
+      "text-xs": size === "xs",
+      "font-bold": weight === "bold",
+      italic: italic,
+    },
+  ]}
+>
+  <slot />
+</Tag>

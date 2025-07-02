@@ -1,27 +1,29 @@
 <span data-animation-appear class="split-container">
-  <div class="animate-me">
+  <span class="animate-me">
     <slot />
-  </div>
+  </span>
 </span>
 
 <script>
   import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
 
-  gsap.registerPlugin(SplitText);
+  gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  document.fonts.ready.then(() => {
-    gsap.set(".split-container", { opacity: 1 });
-    let split = SplitText.create(".animate-me", {
-      type: "words",
-      aria: "hidden",
-    });
+  let split = SplitText.create(".animate-me", {
+    type: "words",
+    aria: "hidden",
+  });
 
-    gsap.from(split.words, {
-      opacity: 0,
-      duration: 2,
-      ease: "sine.out",
-      stagger: 0.1,
-    });
+  gsap.from(split.words, {
+    scrollTrigger: {
+      trigger: ".split-container",
+      markers: false,
+    },
+    opacity: 0,
+    duration: 2,
+    ease: "sine.out",
+    stagger: 0.1,
   });
 </script>

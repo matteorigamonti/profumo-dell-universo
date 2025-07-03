@@ -1,6 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
 import Title from "../components/Title.astro";
+import Button from "./Button.astro";
 import Container from "./Container.astro";
 ---
 
@@ -28,12 +29,24 @@ import Container from "./Container.astro";
         </div>
       </div>
 
-      <p class="ml-auto w-[422px]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
-      </p>
+      <div class="flex flex-col gap-4 ml-auto w-[422px]">
+        <div class="flex items-center gap-2">
+          <button>Italiano</button>
+          <button>English</button>
+          <button>Français</button>
+        </div>
+        <p class="text-indigo-dark">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate.
+        </p>
+
+        <div>
+          <Button>Acquista su Amazon</Button>
+        </div>
+      </div>
     </div>
   </div>
 </Container>

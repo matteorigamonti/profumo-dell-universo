@@ -10,12 +10,14 @@
   --color-sand-light: #c5b697;
   --color-clay-warm: #9e8475;
 
+  --text-xxxl: 140px;
   --text-xxl: 120px;
   --text-xl: 80px;
   --text-lg: 64px;
   --text-md: 40px;
   --text-sm: 32px;
   --text-xs: 24px;
+  --text-xxs: 20px;
 
   --animate-breath: breath 2s ease-in-out infinite;
   @keyframes breath {
@@ -34,7 +36,13 @@
   position: fixed;
   inset: 0;
   z-index: -100;
-  background-image: url("/textured-paper.png");
+  inset: 0;
+  background-image: url("/white-texture.jpg");
   background-repeat: repeat;
-  background-size: contain;
+  background-size: cover;
+}
+
+[data-scrolltrigger-marker] {
+  position: fixed !important;
+  z-index: 99999 !important;
 }

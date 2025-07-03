@@ -13,7 +13,7 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Il profumo dell'universo</title>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <main>
       <slot />
     </main>
@@ -29,8 +29,9 @@ import "../styles/global.css";
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  ScrollSmoother.create({
+  /* ScrollSmoother.create({
     smooth: 1,
     effects: true,
-  });
+    ignoreMobileResize: true,
+  }); */
 </script>

@@ -1,0 +1,95 @@
+---
+import AnimationTextAppear from "./AnimationTextAppear.astro";
+import Container from "./Container.astro";
+import TextStarText from "./TextStarText.astro";
+import Title from "./Title.astro";
+---
+
+<section>
+  <div id="panels-container">
+    <Container>
+      <div class="grid grid-cols-3 grid-rows-2 h-screen p-0 w-[300vw] gap-96">
+        <div
+          data-horizontal-scroll
+          class="max-w-[680px] col-start-1 row-start-1"
+        >
+          <div class="space-y-4">
+            <TextStarText
+              items={["Universo e stelle", "Teoria del tutto e scienza"]}
+            />
+            <Title size="md">
+              <AnimationTextAppear>
+                Il romanzo esplora il cosmo e i misteri dell’universo. Si ispira
+                alle ricerche di Nassim Haramein e alla fisica quantistica.
+              </AnimationTextAppear>
+            </Title>
+          </div>
+        </div>
+
+        <div
+          data-horizontal-scroll
+          class="max-w-[680px] col-start-2 row-start-2"
+        >
+          <div class="space-y-4">
+            <TextStarText
+              items={[
+                "Destino e consapevolezza",
+                "Profumi e percezione sensoriale",
+              ]}
+            />
+            <Title size="md">
+              La protagonista ha un talento speciale legato agli odori. È alla
+              ricerca del senso della propria esistenza.
+            </Title>
+          </div>
+        </div>
+
+        <div
+          data-horizontal-scroll
+          class="max-w-[680px] col-start-3 row-start-3"
+        >
+          <div class="space-y-4">
+            <TextStarText
+              items={[
+                "Spiritualità e antiche civiltà",
+                "Futurismo e innovazione",
+              ]}
+            />
+            <Title size="md">
+              Il libro tocca temi legati all’Egitto e ai simboli esoterici come
+              il
+              <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo che
+              rappresenti l’universo.
+            </Title>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Main navigation */
+  let panelsContainer = document.querySelector("#panels-container"),
+    tween;
+
+  /* Panels */
+  const panels = gsap.utils.toArray("[data-horizontal-scroll]");
+  tween = gsap.to(panels, {
+    xPercent: -100 * (panels.length - 1),
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#panels-container",
+      pin: true,
+      markers: true,
+      start: "top top",
+      scrub: 1,
+      end: () => "+=" + (panelsContainer?.offsetWidth - innerWidth),
+    },
+  });
+</script>

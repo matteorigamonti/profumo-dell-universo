@@ -1,5 +1,4 @@
 ---
-import AnimationTextAppear from "./AnimationTextAppear.astro";
 import Star from "./Star.astro";
 
 interface Props {
@@ -9,14 +8,18 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="inline-flex gap-2 items-center">
+<div class="inline-flex gap-2 items-center group">
   {
     items.map((item, index) => (
       <>
-        <p class="text-clay-warm uppercase font-medium">
-          <AnimationTextAppear>{item}</AnimationTextAppear>
-        </p>
-        {index < items.length - 1 && <Star />}
+        <p class="text-clay-warm uppercase font-medium">{item}</p>
+        {index < items.length - 1 && (
+          <div class="group-hover:rotate-180 transition-transform duration-1000">
+            <div class="animate-breath">
+              <Star />
+            </div>
+          </div>
+        )}
       </>
     ))
   }

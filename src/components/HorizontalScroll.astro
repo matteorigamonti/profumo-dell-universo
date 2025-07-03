@@ -75,7 +75,9 @@ import Title from "./Title.astro";
   gsap.registerPlugin(ScrollTrigger);
 
   /* Main navigation */
-  let panelsContainer = document.querySelector("#panels-container"),
+  let panelsContainer = document.querySelector(
+      "#panels-container"
+    ) as HTMLElement,
     tween;
 
   /* Panels */
@@ -86,7 +88,7 @@ import Title from "./Title.astro";
     scrollTrigger: {
       trigger: "#panels-container",
       pin: true,
-      markers: true,
+      markers: false,
       start: "top top",
       scrub: 1,
       end: () => "+=" + (panelsContainer?.offsetWidth - innerWidth),

@@ -1,0 +1,39 @@
+---
+import Image from "astro/components/Image.astro";
+import Title from "../components/Title.astro";
+import Container from "./Container.astro";
+---
+
+<Container>
+  <!-- <StarsSky /> -->
+
+  <div class="flex justify-stretch items-center">
+    <div class="w-full h-screen flex flex-col pt-16">
+      <div class="flex relative flex-col col-start-1 -col-end-1">
+        <Title size="xxl">Il profumo</Title>
+        <div class="ml-auto row-start-2">
+          <Title size="xxl">dell'<i class="text-indigo-dark">Universo</i></Title
+          >
+        </div>
+
+        <div
+          class="absolute top-0 max-w-1/2 translate-y-[35%] translate-x-[5%] scale-[1.7]"
+        >
+          <Image
+            src="/book.png"
+            alt={"Il profumo dell’Universo"}
+            width={2000}
+            height={2000}
+          />
+        </div>
+      </div>
+
+      <p class="ml-auto w-[422px]">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+      </p>
+    </div>
+  </div>
+</Container>

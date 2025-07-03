@@ -9,6 +9,7 @@
   --color-olive-soft: #bfc64d;
   --color-sand-light: #c5b697;
   --color-clay-warm: #9e8475;
+  --color-cream: #eae7e1;
 
   --text-xxxl: 140px;
   --text-xxl: 120px;
@@ -18,6 +19,7 @@
   --text-sm: 32px;
   --text-xs: 24px;
   --text-xxs: 20px;
+  --text-xxxs: 14px;
 
   --animate-breath: breath 2s ease-in-out infinite;
   @keyframes breath {

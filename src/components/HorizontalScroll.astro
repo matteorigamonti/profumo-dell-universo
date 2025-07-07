@@ -1,19 +1,27 @@
 ---
+import Picture from "astro/components/Picture.astro";
 import AnimationTextAppear from "./AnimationTextAppear.astro";
 import Container from "./Container.astro";
 import TextStarText from "./TextStarText.astro";
 import Title from "./Title.astro";
+import bgScroll from "../assets/bg-scroll.jpg";
 ---
 
-<section>
-  <div id="panels-container">
-    <Container>
-      <div class="grid grid-cols-3 grid-rows-2 h-screen p-0 w-[300vw] gap-96">
-        <div
-          data-horizontal-scroll
-          class="max-w-[680px] col-start-1 row-start-1"
-        >
-          <div class="space-y-4">
+<section
+  class="bg-linear-to-t from-blue-royal to-indigo-dark text-white relative overflow-hidden"
+>
+  <Picture
+    alt=""
+    src={bgScroll}
+    width={1920}
+    height={1080}
+    class="object-cover object-center absolute inset-0 mix-blend-exclusion opacity-50"
+  />
+  <Container>
+    <div data-horizontal-scroll-section>
+      <div data-horizontal-scroll-container>
+        <div class="flex items-center h-screen p-0 w-[300vw] gap-96">
+          <div data-horizontal-scroll class="max-w-[680px]">
             <TextStarText
               items={["Universo e stelle", "Teoria del tutto e scienza"]}
             />
@@ -24,13 +32,8 @@ import Title from "./Title.astro";
               </AnimationTextAppear>
             </Title>
           </div>
-        </div>
 
-        <div
-          data-horizontal-scroll
-          class="max-w-[680px] col-start-2 row-start-2"
-        >
-          <div class="space-y-4">
+          <div data-horizontal-scroll class="max-w-[680px]">
             <TextStarText
               items={[
                 "Destino e consapevolezza",
@@ -42,13 +45,8 @@ import Title from "./Title.astro";
               ricerca del senso della propria esistenza.
             </Title>
           </div>
-        </div>
 
-        <div
-          data-horizontal-scroll
-          class="max-w-[680px] col-start-3 row-start-3"
-        >
-          <div class="space-y-4">
+          <div data-horizontal-scroll class="max-w-[680px]">
             <TextStarText
               items={[
                 "Spiritualità e antiche civiltà",
@@ -64,8 +62,8 @@ import Title from "./Title.astro";
           </div>
         </div>
       </div>
-    </Container>
-  </div>
+    </div>
+  </Container>
 </section>
 
 <script>
@@ -74,24 +72,23 @@ import Title from "./Title.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  /* Main navigation */
-  let panelsContainer = document.querySelector(
-      "#panels-container"
-    ) as HTMLElement,
-    tween;
-
-  /* Panels */
   const panels = gsap.utils.toArray("[data-horizontal-scroll]");
-  tween = gsap.to(panels, {
+  gsap.to("[data-horizontal-scroll-container]", {
     xPercent: -100 * (panels.length - 1),
     ease: "none",
     scrollTrigger: {
-      trigger: "#panels-container",
+      trigger: "[data-horizontal-scroll-section]",
       pin: true,
-      markers: false,
-      start: "top top",
       scrub: 1,
-      end: () => "+=" + (panelsContainer?.offsetWidth - innerWidth),
+      markers: false,
+      start: "top+=10% top",
+      end: () =>
+        "+=" +
+        (
+          document.querySelector(
+            "[data-horizontal-scroll-container]"
+          ) as HTMLElement
+        ).offsetWidth,
     },
   });
 </script>

@@ -4,18 +4,20 @@ import AnimationTextAppear from "./AnimationTextAppear.astro";
 import Container from "./Container.astro";
 import TextStarText from "./TextStarText.astro";
 import Title from "./Title.astro";
-import bgScroll from "../assets/bg-scroll.jpg";
+import bgScroll from "../assets/bg-scroll-original.png";
 ---
 
 <section
-  class="bg-linear-to-t from-blue-royal to-indigo-dark text-white relative overflow-hidden"
+  data-pin-end-trigger
+  style={`mask-image: url('/public/mask.svg'); `}
+  class="bg-linear-to-t from-blue-royal to-indigo-dark text-white relative overflow-hidden mask-center mask-no-repeat mask-cover"
 >
   <Picture
     alt=""
     src={bgScroll}
     width={1920}
     height={1080}
-    class="object-cover object-center absolute inset-0 mix-blend-exclusion opacity-50"
+    class="object-cover object-center absolute inset-0 opacity-50 size-full"
   />
   <Container>
     <div data-horizontal-scroll-section>
@@ -73,6 +75,7 @@ import bgScroll from "../assets/bg-scroll.jpg";
   gsap.registerPlugin(ScrollTrigger);
 
   const panels = gsap.utils.toArray("[data-horizontal-scroll]");
+
   gsap.to("[data-horizontal-scroll-container]", {
     xPercent: -100 * (panels.length - 1),
     ease: "none",

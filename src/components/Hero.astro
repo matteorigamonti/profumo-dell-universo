@@ -8,51 +8,90 @@ import Link from "./Link.astro";
 import StarsSky from "./StarsSky.astro";
 ---
 
-<Container>
-  <StarsSky />
+<div class="overflow-hidden relative" data-pin-section>
+  <Container>
+    <StarsSky />
 
-  <div class="flex justify-stretch items-center">
-    <div class="w-full h-screen flex flex-col pt-16">
-      <div class="flex relative flex-col col-start-1 -col-end-1">
-        <Title size="xxl">Il profumo</Title>
-        <div class="ml-auto row-start-2">
-          <Title size="xxl">dell'<i class="text-indigo-dark">Universo</i></Title
+    <div
+      data-speed="0.3"
+      class="bg-tan-light w-full h-screen absolute inset-0"
+      style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);
+"
+    >
+    </div>
+
+    <div
+      data-speed="0.6"
+      class="bg-tan w-full h-screen absolute inset-0"
+      style="clip-path: polygon(0 60%, 0% 100%, 80% 100%);
+"
+    >
+    </div>
+
+    <div class="flex justify-stretch items-center">
+      <div class="w-full h-screen flex flex-col justify-center pb-12">
+        <div class="flex relative flex-col col-start-1 -col-end-1">
+          <Title size="xxl">Il profumo</Title>
+          <div class="ml-auto row-start-2">
+            <Title size="xxl"
+              >dell'<i class="text-indigo-dark">Universo</i></Title
+            >
+          </div>
+
+          <div
+            data-speed="1.3"
+            class="absolute inset-y-0 max-w-1/2 translate-y-[40%] translate-x-[5%] scale-[1.7] pointer-events-none"
           >
+            <Picture
+              loading={"eager"}
+              formats={["avif", "webp"]}
+              src={book}
+              alt={"Il profumo dell’Universo"}
+              width={1600}
+              height={1600}
+            />
+          </div>
         </div>
 
-        <div
-          data-speed="1.3"
-          class="absolute inset-y-0 max-w-1/2 translate-y-[40%] translate-x-[5%] scale-[1.7] pointer-events-none"
-        >
-          <Picture
-            loading={"eager"}
-            formats={["avif", "webp"]}
-            src={book}
-            alt={"Il profumo dell’Universo"}
-            width={1600}
-            height={1600}
-          />
-        </div>
-      </div>
+        <div class="flex flex-col gap-4 ml-auto w-[422px]">
+          <div class="flex items-center gap-2">
+            <Button>Italiano</Button>
+            <Button>English</Button>
+            <Button>Français</Button>
+          </div>
+          <p class="text-indigo-dark">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate.
+          </p>
 
-      <div class="flex flex-col gap-4 ml-auto w-[422px]">
-        <div class="flex items-center gap-2">
-          <Button>Italiano</Button>
-          <Button>English</Button>
-          <Button>Français</Button>
-        </div>
-        <p class="text-indigo-dark">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate.
-        </p>
-
-        <div>
-          <Link>Acquista su Amazon</Link>
+          <div>
+            <Link>Acquista su Amazon</Link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</Container>
+  </Container>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("[data-pin-section]", {
+    scrollTrigger: {
+      trigger: "[data-pin-section]",
+      start: "bottom bottom",
+      end: "top top",
+      endTrigger: "[data-pin-end-trigger]",
+      pin: true,
+      pinSpacing: false,
+      scrub: 1,
+      markers: false,
+    },
+  });
+</script>

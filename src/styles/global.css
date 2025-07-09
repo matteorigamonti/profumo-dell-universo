@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Inter Variable", sans-serif;
   --font-serif: "Castoro", sans-serif;
 
   --color-indigo-dark: #2b274c;
@@ -41,6 +41,10 @@
   background-repeat: repeat;
   background-size: cover;
 } */
+
+html {
+  font-family: var(--font-sans);
+}
 
 .bg-body {
   position: fixed;

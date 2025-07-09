@@ -1,0 +1,24 @@
+<div class="opacity-0" animation-fade>
+  <slot />
+</div>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray("[animation-fade]").forEach((element) => {
+    gsap.to(element as HTMLElement, {
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        markers: true,
+        trigger: element as HTMLElement,
+        start: "20% bottom",
+        end: "bottom top",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+</script>

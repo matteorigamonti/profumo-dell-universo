@@ -1,0 +1,74 @@
+---
+import Picture from "astro/components/Picture.astro";
+import bertaCorviRead from "../assets/berta-corvi-read-original.jpg";
+import Container from "./Container.astro";
+import Title from "./Title.astro";
+import AnimationFade from "./AnimationFade.astro";
+---
+
+<section>
+  <Container>
+    <div class="text-center text-indigo-dark">
+      <p class="text-xxs font-medium uppercase">L'autrice del libro</p>
+      <Title tag="h2" size="xxl">Berta Corvi</Title>
+    </div>
+
+    <div class="grid gap-4 grid-cols-[1fr_2fr]">
+      <AnimationFade>
+        <div data-scroll-image class="-rotate-[10deg]">
+          <Picture
+            src={bertaCorviRead}
+            alt=""
+            width={367}
+            formats={["avif", "webp", "jpg"]}
+            height={550}
+            quality={100}
+          />
+        </div>
+      </AnimationFade>
+
+      <div class="space-y-6">
+        <div class="max-w-[550px]">
+          <Title tag="h3" size="xs">
+            Insegnante di lingue, traduttrice e autrice italiana, madrelingua
+            francese.
+          </Title>
+        </div>
+        <div class="max-w-[480px] space-y-4">
+          <p>
+            Laureata in lingue e letterature straniere, ha maturato una lunga
+            esperienza nell’insegnamento delle lingue francese, inglese e
+            italiano, e nella promozione culturale. Ha pubblicato raccolte
+            poetiche e tradotto testi letterari dall’italiano al francese e dal
+            francese all’italiano.
+          </p>
+          <p>
+            Il <b>profumo dell’Universo</b> è il suo primo romanzo, in cui fonde
+            elementi scientifici, filosofici e simbolici in una narrazione ricca
+            di suggestioni. Attualmente vive in Brianza, dove dirige una scuola di
+            lingue e collabora a progetti educativi e culturali.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("[data-scroll-image]", {
+    scrollTrigger: {
+      trigger: "[data-scroll-image]",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: 1,
+      markers: false,
+    },
+
+    yPercent: -20,
+    ease: "none",
+  });
+</script>

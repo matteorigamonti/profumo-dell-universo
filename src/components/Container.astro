@@ -1,20 +1,21 @@
 ---
 interface Props {
-    size?: 'small' | 'medium' | 'large'
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
-const { size = 'medium' } = Astro.props
+const { size = "md" } = Astro.props;
 ---
 
 <div
-    class:list={[
-        'mx-auto px-4',
-        {
-            'max-w-[977px]': size === 'small',
-            'max-w-[1200px]': size === 'medium',
-            'max-w-[1360px]': size === 'large',
-        },
-    ]}
+  class:list={[
+    "mx-auto px-4",
+    {
+      "max-w-[977px]": size === "sm",
+      "max-w-[1200px]": size === "md",
+      "max-w-[1360px]": size === "lg",
+      "max-w-[1440px]": size === "xl",
+    },
+  ]}
 >
-    <slot />
+  <slot />
 </div>

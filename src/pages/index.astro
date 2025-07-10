@@ -2,6 +2,8 @@
 import Author from "../components/blocks/Author.astro";
 import Hero from "../components/blocks/Hero.astro";
 import HorizontalScroll from "../components/blocks/HorizontalScroll.astro";
+import Interview from "../components/blocks/Interview.astro";
+import SliderArticles from "../components/blocks/SliderArticles.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -10,7 +12,23 @@ import Layout from "../layouts/Layout.astro";
 
   <HorizontalScroll />
 
-  <div class="h-[200vh]">
+  <div class="relative">
+    <!--  <div class="absolute rotate-90 inset-0 -z-40">
+      <Picture
+        src="/interview-bg.jpg"
+        width={1920}
+        height={1080}
+        alt=""
+        class="mix-blend-exclusion size-full object-cover"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-l from-[#d9d9d900] to-[#737373]"
+      >
+      </div>
+    </div> -->
+
     <Author />
+    <Interview />
+    <SliderArticles />
   </div>
 </Layout>

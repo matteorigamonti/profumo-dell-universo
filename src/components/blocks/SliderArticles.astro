@@ -1,0 +1,60 @@
+---
+import "swiper/css";
+import Container from "../Container.astro";
+import ARTICLES from "../../mocks/articles.json";
+import Title from "../Title.astro";
+import Picture from "astro/components/Picture.astro";
+import Link from "../Link.astro";
+---
+
+<section class="pb-44">
+  <Container size="lg">
+    <!-- Slider main container -->
+    <div class="swiper !overflow-visible">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        {
+          ARTICLES.map((article) => (
+            <div class="swiper-slide text-indigo-dark space-y-4">
+              {/* <Picture
+                alt={article.title}
+                src={article.image}
+                width={354}
+                height={271}
+              /> */}
+              <div class="aspect-[354/271]  w-full h-[271px] bg-[#E1E6F4] size-full" />
+              <Title size="xxs">{article.title}</Title>
+              <Link target="_blank" href={article.link}>
+                Leggi l'articolo
+              </Link>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .swiper {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: 3.5,
+    spaceBetween: 8,
+  });
+
+  swiper.init();
+</script>

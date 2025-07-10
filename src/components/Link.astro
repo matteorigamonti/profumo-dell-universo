@@ -1,9 +1,15 @@
 ---
-const { href } = Astro.props;
+interface Props {
+  href?: string;
+  target?: "_blank" | "_self";
+}
+
+const { href = "#", target = "_self" } = Astro.props;
 ---
 
 <a
   href={href}
+  target={target}
   class="text-xxs inline-block font-serif py-1 px-2 text-blue-royal after:w-full after:bg-blue-royal after:h-px after:inline-block relative after:absolute after:bottom-0 after:left-0 cursor-pointer hover:after:h-full after:transition-all hover:text-white transition-all after:-z-10 duration-500 after:duration-500 click active:bg-indigo-dark"
 >
   <slot />

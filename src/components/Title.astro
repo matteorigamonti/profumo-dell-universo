@@ -5,6 +5,7 @@ interface Props {
   italic?: boolean;
   weight?: "normal" | "bold";
   className?: string;
+  uppercase?: boolean;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   italic = false,
   weight = "normal",
   className = "",
+  uppercase = false,
 } = Astro.props;
 const Tag = tag;
 ---
@@ -31,6 +33,7 @@ const Tag = tag;
       "text-xxs": size === "xxs",
       "font-bold": weight === "bold",
       italic: italic,
+      uppercase: uppercase,
     },
   ]}
 >

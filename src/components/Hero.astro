@@ -6,6 +6,7 @@ import Title from "../components/Title.astro";
 import Container from "./Container.astro";
 import Link from "./Link.astro";
 import StarsSky from "./StarsSky.astro";
+import AnimationFade from "./AnimationFade.astro";
 ---
 
 <div class="overflow-hidden relative" data-pin-section>
@@ -31,11 +32,16 @@ import StarsSky from "./StarsSky.astro";
     <div class="flex justify-stretch items-center">
       <div class="w-full h-screen flex flex-col justify-center pb-12">
         <div class="flex relative flex-col col-start-1 -col-end-1">
-          <Title size="xxl">Il profumo</Title>
+          <AnimationFade>
+            <Title size="xxl">Il profumo</Title>
+          </AnimationFade>
+
           <div class="ml-auto row-start-2">
-            <Title size="xxl"
-              >dell'<i class="text-indigo-dark">Universo</i></Title
-            >
+            <AnimationFade>
+              <Title size="xxl"
+                >dell'<i class="text-indigo-dark">Universo</i></Title
+              >
+            </AnimationFade>
           </div>
 
           <div

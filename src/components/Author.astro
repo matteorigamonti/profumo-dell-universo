@@ -4,54 +4,83 @@ import bertaCorviRead from "../assets/berta-corvi-read-original.jpg";
 import Container from "./Container.astro";
 import Title from "./Title.astro";
 import AnimationFade from "./AnimationFade.astro";
+import Star from "./Star.astro";
+import AnimationFadeY from "./AnimationFadeY.astro";
+import ActionButtonGhost from "./ActionButtonGhost.astro";
 ---
 
 <section>
-  <Container>
-    <div class="text-center text-indigo-dark">
-      <p class="text-xxs font-medium uppercase">L'autrice del libro</p>
-      <Title tag="h2" size="xxl">Berta Corvi</Title>
-    </div>
+  <div class="relative z-20">
+    <Container>
+      <div class="text-center text-indigo-dark">
+        <AnimationFadeY>
+          <p class="text-xxs font-medium uppercase">L'autrice del libro</p>
+        </AnimationFadeY>
 
-    <div class="grid gap-4 grid-cols-[1fr_2fr]">
-      <AnimationFade>
-        <div data-scroll-image class="-rotate-[10deg]">
-          <Picture
-            src={bertaCorviRead}
-            alt=""
-            width={367}
-            formats={["avif", "webp", "jpg"]}
-            height={550}
-            quality={100}
-          />
-        </div>
-      </AnimationFade>
-
-      <div class="space-y-6">
-        <div class="max-w-[550px]">
-          <Title tag="h3" size="xs">
-            Insegnante di lingue, traduttrice e autrice italiana, madrelingua
-            francese.
-          </Title>
-        </div>
-        <div class="max-w-[480px] space-y-4">
-          <p>
-            Laureata in lingue e letterature straniere, ha maturato una lunga
-            esperienza nell’insegnamento delle lingue francese, inglese e
-            italiano, e nella promozione culturale. Ha pubblicato raccolte
-            poetiche e tradotto testi letterari dall’italiano al francese e dal
-            francese all’italiano.
-          </p>
-          <p>
-            Il <b>profumo dell’Universo</b> è il suo primo romanzo, in cui fonde
-            elementi scientifici, filosofici e simbolici in una narrazione ricca
-            di suggestioni. Attualmente vive in Brianza, dove dirige una scuola di
-            lingue e collabora a progetti educativi e culturali.
-          </p>
-        </div>
+        <AnimationFadeY>
+          <Title tag="h2" size="xxl">Berta Corvi</Title>
+        </AnimationFadeY>
       </div>
-    </div>
-  </Container>
+
+      <div class="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_2fr]">
+        <AnimationFade>
+          <div
+            data-scroll-image
+            class="-rotate-[10deg] -translate-x-6 max-lg:flex items-center justify-center max-lg:mt-14"
+          >
+            <Picture
+              src={bertaCorviRead}
+              alt=""
+              width={367}
+              formats={["avif", "webp", "jpg"]}
+              height={550}
+              quality={100}
+            />
+          </div>
+        </AnimationFade>
+
+        <AnimationFadeY>
+          <div class="space-y-6 text-indigo-dark">
+            <div class="lg:max-w-[550px]">
+              <Title tag="h3" size="xs">
+                Insegnante di lingue, traduttrice e autrice italiana,
+                madrelingua francese.
+              </Title>
+            </div>
+            <div class="space-y-14">
+              <div class="lg:max-w-[480px] space-y-4">
+                <p>
+                  Laureata in lingue e letterature straniere, ha maturato una
+                  lunga esperienza nell’insegnamento delle lingue francese,
+                  inglese e italiano, e nella promozione culturale. Ha
+                  pubblicato raccolte poetiche e tradotto testi letterari
+                  dall’italiano al francese e dal francese all’italiano.
+                </p>
+                <p>
+                  Il <b>profumo dell’Universo</b> è il suo primo romanzo, in cui
+                  fonde elementi scientifici, filosofici e simbolici in una narrazione
+                  ricca di suggestioni. Attualmente vive in Brianza, dove dirige
+                  una scuola di lingue e collabora a progetti educativi e culturali.
+                </p>
+              </div>
+
+              <a class="uppercase group items-center flex gap-4" href="#">
+                Scopri il punto di vista dell'autrice
+                <div class="inline-grid place-items-center animate-breath">
+                  <Star fill="blue" />
+                </div>
+
+                <div class="h-px bg-indigo-dark w-full grow shrink basis-0">
+                </div>
+
+                <div class="ml-auto"><ActionButtonGhost /></div>
+              </a>
+            </div>
+          </div>
+        </AnimationFadeY>
+      </div>
+    </Container>
+  </div>
 </section>
 
 <script>

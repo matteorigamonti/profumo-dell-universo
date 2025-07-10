@@ -55,3 +55,9 @@ html {
   background-repeat: repeat;
   background-size: cover;
 }
+
+.bg-body-container {
+  background-image: url("/white-texture.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+}

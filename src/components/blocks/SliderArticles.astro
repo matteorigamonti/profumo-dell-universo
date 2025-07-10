@@ -52,7 +52,18 @@ import Link from "../Link.astro";
   import Swiper from "swiper";
 
   const swiper = new Swiper(".swiper", {
-    slidesPerView: 3.5,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 2.5,
+      },
+      1024: {
+        slidesPerView: 3.5,
+      },
+    },
+    slidesPerView: 1,
     spaceBetween: 8,
   });
 

@@ -5,11 +5,11 @@ import Title from "../Title.astro";
 
 <div
   dahlia-section
-  class="fixed inset-0 h-screen w-screen bg-body-container z-50 translate-y-full transition-transform duration-1000"
+  class="fixed inset-0 h-screen w-screen bg-body-container z-50 translate-y-full transition-transform duration-1000 overflow-y-auto py-16 flex flex-col justify-center"
 >
   <Container>
-    <div class="max-w-[480px] text-indigo-dark">
-      <div class="space-y-4">
+    <div class="flex flex-col gap-y-10">
+      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4">
         <Title size="xs"
           ><i class="text-sand-light">Dahlia</i> è una giovane donna dallo sguardo
           intenso e misterioso, capace di percepire ciò che sfugge agli altri.</Title
@@ -28,6 +28,35 @@ import Title from "../Title.astro";
           tra scienza e spirito.
         </p>
       </div>
+
+      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4 ml-auto">
+        <Title size="xs">
+          L’incontro con <i class="text-sand-light">Nassim Haramein</i>,
+          scienziato visionario, dà inizio a un viaggio in cui la passione per
+          le stelle e per la conoscenza si fonde con il mistero della creazione.</Title
+        >
+
+        <p>
+          Dietro la sua eleganza si cela una forza interiore silenziosa, capace
+          di trasformare il dolore in bellezza. Guidata da una potente
+          intuizione, Dahlia si apre agli antichi saperi e alle verità
+          dimenticate, divenendo custode di una fragranza unica: il profumo
+          dell’universo.
+        </p>
+      </div>
     </div>
   </Container>
 </div>
+
+<script>
+  const dahliaSection = document.querySelector(
+    "[dahlia-section]"
+  ) as HTMLElement;
+
+  const body = document.querySelector("body") as HTMLElement;
+
+  dahliaSection.addEventListener("click", () => {
+    dahliaSection.classList.remove("!translate-y-0");
+    body.classList.remove("!overflow-hidden");
+  });
+</script>

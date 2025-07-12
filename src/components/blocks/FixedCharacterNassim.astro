@@ -1,0 +1,61 @@
+---
+import Container from "../Container.astro";
+import Title from "../Title.astro";
+---
+
+<div
+  nassim-section
+  class="fixed inset-0 h-screen w-screen bg-body-container z-50 translate-y-full transition-transform duration-1000 overflow-y-auto py-16 flex flex-col justify-center"
+>
+  <Container>
+    <div class="flex flex-col gap-y-10">
+      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4">
+        <Title size="xs">
+          <i class="text-sand-light">Nassim Haramein</i> è uno scienziato brillante
+          e fuori dagli schemi, animato da un’insaziabile sete di verità e da una
+          visione del mondo che unisce scienza, filosofia e spiritualità.
+        </Title>
+
+        <p>
+          Con uno sguardo profondo e penetrante, osserva il cielo stellato non
+          solo con gli occhi dell’astrofisico, ma con il cuore di chi cerca un
+          senso più vasto all’esistenza. Da anni studia la struttura
+          dell’universo, affascinato dall’armonia nascosta dietro ogni cosa, dal
+          battito di un atomo al movimento delle galassie. Solitario e
+          riflessivo, Nassim ha dedicato la sua vita alla ricerca della “Teoria
+          del Tutto”, convinto che esista un legame sottile tra tutte le forme
+          di vita.
+        </p>
+      </div>
+
+      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4 ml-auto">
+        <Title size="xs">
+          L’incontro con <i class="text-sand-light">Dahlia</i> risveglia in lui emozioni
+          che pensava sopite: lei incarna l’intuizione, l’arte e il mistero che la
+          scienza, da sola, non può spiegare.
+        </Title>
+
+        <p>
+          Accanto a lei, Nassim scopre che anche la materia più razionale può
+          essere attraversata da profumi invisibili, da memorie ancestrali e
+          visioni future. Insieme, danno forma a un viaggio straordinario, dove
+          l’universo non è solo oggetto di studio, ma esperienza viva da
+          ascoltare, sentire e raccontare.
+        </p>
+      </div>
+    </div>
+  </Container>
+</div>
+
+<script>
+  const nassimSection = document.querySelector(
+    "[nassim-section]"
+  ) as HTMLElement;
+
+  const body = document.querySelector("body") as HTMLElement;
+
+  nassimSection.addEventListener("click", () => {
+    nassimSection.classList.remove("!translate-y-0");
+    body.classList.remove("!overflow-hidden");
+  });
+</script>

@@ -7,25 +7,32 @@ import Title from "../Title.astro";
 
 <section class="min-h-screen grid place-items-center">
   <Container>
-    <div class="flex items-center justify-between">
+    <div
+      class="flex flex-col lg:flex-row items-center justify-between gap-y-16"
+    >
       <button
-        onclick=""
-        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+        dahlia-trigger
+        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-2 lg:order-1"
       >
         <Title size="xl">Dahlia</Title>
         <ActionButtonGhost />
       </button>
 
-      <Star fill="blue" size={24} />
+      <div
+        class="flex items-center gap-4 justify-around order-1 lg:order-2 basis-full"
+      >
+        <Star fill="blue" size={24} />
 
-      <p class="uppercase text-indigo-dark text-xxs font-medium">
-        I protagonisti
-      </p>
+        <p class="uppercase text-indigo-dark text-xxs font-medium">
+          I protagonisti
+        </p>
 
-      <Star fill="blue" size={24} />
+        <Star fill="blue" size={24} />
+      </div>
 
       <button
-        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+        nassim-trigger
+        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-3"
       >
         <Title size="xl">Nassim</Title>
         <ActionButtonGhost />
@@ -35,14 +42,31 @@ import Title from "../Title.astro";
 </section>
 
 <script>
+  const body = document.querySelector("body") as HTMLElement;
+
+  const dahliaTrigger = document.querySelector(
+    "[dahlia-trigger]"
+  ) as HTMLElement;
+
   const dahliaSection = document.querySelector(
     "[dahlia-section]"
   ) as HTMLElement;
 
-  const body = document.querySelector("body") as HTMLElement;
+  const nassimTrigger = document.querySelector(
+    "[nassim-trigger]"
+  ) as HTMLElement;
 
-  onclick = () => {
-    dahliaSection.classList.toggle("!translate-y-0");
-    body.classList.toggle("!overflow-hidden");
-  };
+  const nassimSection = document.querySelector(
+    "[nassim-section]"
+  ) as HTMLElement;
+
+  dahliaTrigger.addEventListener("click", () => {
+    dahliaSection.classList.add("!translate-y-0");
+    body.classList.add("!overflow-hidden");
+  });
+
+  nassimTrigger.addEventListener("click", () => {
+    nassimSection.classList.add("!translate-y-0");
+    body.classList.add("!overflow-hidden");
+  });
 </script>

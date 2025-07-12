@@ -1,76 +1,82 @@
 ---
 import AnimationPulse from "./animations/AnimationPulse.astro";
 import Star from "./Star.astro";
+
+interface Props {
+  color?: "yellow" | "blue";
+}
+
+const { color = "yellow" } = Astro.props as Props;
 ---
 
 <div class="absolute inset-0 h-screen w-screen -z-40">
   <div data-speed="0.8">
     <div class="absolute" style="top: 12%; left: 34%;">
       <AnimationPulse>
-        <Star size={35} />
+        <Star fill={color} size={35} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.5">
     <div class="absolute" style="top: 27%; left: 61%;">
       <AnimationPulse>
-        <Star size={40} />
+        <Star fill={color} size={40} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="1.0">
     <div class="absolute" style="top: 45%; left: 18%;">
       <AnimationPulse>
-        <Star size={30} />
+        <Star fill={color} size={30} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.9">
     <div class="absolute" style="top: 72%; left: 83%;">
       <AnimationPulse>
-        <Star size={20} />
+        <Star fill={color} size={20} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.2">
     <div class="absolute" style="top: 15%; left: 77%;">
       <AnimationPulse>
-        <Star size={25} />
+        <Star fill={color} size={25} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.6">
     <div class="absolute" style="top: 65%; left: 42%;">
       <AnimationPulse>
-        <Star size={35} />
+        <Star fill={color} size={35} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.4">
     <div class="absolute" style="top: 38%; left: 89%;">
       <AnimationPulse>
-        <Star size={40} />
+        <Star fill={color} size={40} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.7">
     <div class="absolute" style="top: 81%; left: 7%;">
       <AnimationPulse>
-        <Star size={30} />
+        <Star fill={color} size={30} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="0.4">
     <div class="absolute" style="top: 23%; left: 15%;">
       <AnimationPulse>
-        <Star size={20} />
+        <Star fill={color} size={20} />
       </AnimationPulse>
     </div>
   </div>
   <div data-speed="1.0">
     <div class="absolute" style="top: 58%; left: 93%;">
       <AnimationPulse>
-        <Star size={25} />
+        <Star fill={color} size={25} />
       </AnimationPulse>
     </div>
   </div>

@@ -1,0 +1,48 @@
+---
+import ActionButtonGhost from "../ActionButtonGhost.astro";
+import Container from "../Container.astro";
+import Star from "../Star.astro";
+import Title from "../Title.astro";
+---
+
+<section class="min-h-screen grid place-items-center">
+  <Container>
+    <div class="flex items-center justify-between">
+      <button
+        onclick=""
+        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+      >
+        <Title size="xl">Dahlia</Title>
+        <ActionButtonGhost />
+      </button>
+
+      <Star fill="blue" size={24} />
+
+      <p class="uppercase text-indigo-dark text-xxs font-medium">
+        I protagonisti
+      </p>
+
+      <Star fill="blue" size={24} />
+
+      <button
+        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+      >
+        <Title size="xl">Nassim</Title>
+        <ActionButtonGhost />
+      </button>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const dahliaSection = document.querySelector(
+    "[dahlia-section]"
+  ) as HTMLElement;
+
+  const body = document.querySelector("body") as HTMLElement;
+
+  onclick = () => {
+    dahliaSection.classList.toggle("!translate-y-0");
+    body.classList.toggle("!overflow-hidden");
+  };
+</script>

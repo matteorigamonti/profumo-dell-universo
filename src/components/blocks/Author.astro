@@ -7,6 +7,7 @@ import ActionButtonGhost from "../ActionButtonGhost.astro";
 import Title from "../Title.astro";
 import AnimationFade from "../animations/AnimationFade.astro";
 import Star from "../Star.astro";
+import ButtonLine from "../ButtonLine.astro";
 ---
 
 <section>
@@ -64,17 +65,9 @@ import Star from "../Star.astro";
                 </p>
               </div>
 
-              <a class="uppercase group items-center flex gap-4" href="#">
-                Scopri il punto di vista dell'autrice
-                <div class="inline-grid place-items-center animate-breath">
-                  <Star fill="blue" />
-                </div>
-
-                <div class="h-px bg-indigo-dark w-full grow shrink basis-0">
-                </div>
-
-                <div class="ml-auto"><ActionButtonGhost /></div>
-              </a>
+              <ButtonLine href="#"
+                >Scopri il punto di vista dell'autrice</ButtonLine
+              >
             </div>
           </div>
         </AnimationFadeY>

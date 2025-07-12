@@ -2,6 +2,8 @@
 import "@fontsource-variable/inter";
 import "@fontsource/castoro";
 import "../styles/global.css";
+import Container from "../components/Container.astro";
+import FixedCharacterDahlia from "../components/blocks/FixedCharacterDahlia.astro";
 ---
 
 <!doctype html>
@@ -19,6 +21,7 @@ import "../styles/global.css";
     </main>
 
     <div data-speed="0" class="bg-body"></div>
+    <FixedCharacterDahlia />
   </body>
 </html>
 
@@ -32,6 +35,5 @@ import "../styles/global.css";
   ScrollSmoother.create({
     smooth: 1,
     effects: true,
-    ignoreMobileResize: true,
   });
 </script>

@@ -1,0 +1,47 @@
+---
+import ActionButtonGhost from "./ActionButtonGhost.astro";
+import Star from "./Star.astro";
+
+interface Props {
+  href?: string;
+  target?: "_blank" | "_self";
+  color?: "blue" | "white";
+}
+
+const { href = "#", target = "_self", color = "blue" } = Astro.props;
+---
+
+<a
+  class:list={[
+    "uppercase group items-center flex gap-4",
+    {
+      "text-indigo-dark": color === "blue",
+      "text-white": color === "white",
+    },
+  ]}
+  href={href}
+  target={target}
+>
+  <slot />
+  <div class="inline-grid place-items-center animate-breath">
+    {
+      color === "blue" ? (
+        <Star fill="blue" />
+      ) : color === "white" ? (
+        <Star fill="yellow" />
+      ) : null
+    }
+  </div>
+
+  <div
+    class:list={[
+      "h-px  w-full grow shrink basis-0",
+      {
+        "bg-white": color === "white",
+        "bg-indigo-dark": color === "blue",
+      },
+    ]}
+  >
+  </div>
+  <div class="ml-auto"><ActionButtonGhost color={color} /></div>
+</a>

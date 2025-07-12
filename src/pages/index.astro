@@ -1,5 +1,6 @@
 ---
 import Author from "../components/blocks/Author.astro";
+import BookShortDescription from "../components/blocks/BookShortDescription.astro";
 import Characters from "../components/blocks/Characters.astro";
 import Footer from "../components/blocks/Footer.astro";
 import Hero from "../components/blocks/Hero.astro";
@@ -11,24 +12,10 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <Hero />
-
+  <BookShortDescription />
   <HorizontalScroll />
 
   <div class="relative">
-    <!-- <div class="absolute rotate-90 inset-0 -z-40">
-      <Picture
-        src="/interview-bg.jpg"
-        width={1920}
-        height={1080}
-        alt=""
-        class="mix-blend-exclusion size-full object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-l from-[#d9d9d900] to-[#737373]"
-      >
-      </div>
-    </div> -->
-
     <Characters />
     <Author />
     <Interview />

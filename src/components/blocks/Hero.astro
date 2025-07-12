@@ -1,31 +1,29 @@
 ---
 import Picture from "astro/components/Picture.astro";
 import book from "../../assets/book.png";
-import Container from "../Container.astro";
-import StarsSky from "../StarsSky.astro";
 import AnimationFade from "../animations/AnimationFade.astro";
-import Title from "../Title.astro";
 import Button from "../Button.astro";
+import Container from "../Container.astro";
 import Link from "../Link.astro";
+import StarsSky from "../StarsSky.astro";
+import Title from "../Title.astro";
 ---
 
-<div class="overflow-hidden relative" data-pin-section>
+<div class="overflow-hidden relative">
   <Container>
     <StarsSky />
 
+    <div class="absolute inset-0 mix-blend-color bg-cream -z-50"></div>
+
     <div
-      data-speed="0.3"
       class="bg-tan-light w-full h-screen absolute inset-0"
-      style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);
-"
+      style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);"
     >
     </div>
 
     <div
-      data-speed="0.6"
       class="bg-tan w-full h-screen absolute inset-0"
-      style="clip-path: polygon(0 60%, 0% 100%, 80% 100%);
-"
+      style="clip-path: polygon(0 60%, 0% 100%, 80% 100%);"
     >
     </div>
 
@@ -81,23 +79,3 @@ import Link from "../Link.astro";
     </div>
   </Container>
 </div>
-
-<script>
-  import gsap from "gsap";
-  import ScrollTrigger from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.to("[data-pin-section]", {
-    scrollTrigger: {
-      trigger: "[data-pin-section]",
-      start: "bottom bottom",
-      end: "top top",
-      endTrigger: "[data-pin-end-trigger]",
-      pin: true,
-      pinSpacing: false,
-      scrub: 1,
-      markers: false,
-    },
-  });
-</script>

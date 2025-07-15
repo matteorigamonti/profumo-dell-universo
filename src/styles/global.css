@@ -35,13 +35,6 @@
   }
 }
 
-/* body */
-/* body {
-  background-image: url("/white-texture.jpg");
-  background-repeat: repeat;
-  background-size: cover;
-} */
-
 html {
   font-family: var(--font-sans);
 }

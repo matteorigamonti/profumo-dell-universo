@@ -1,10 +1,11 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import ActionButtonGhost from "./ActionButtonGhost.astro";
 import Star from "./Star.astro";
 
 interface Props {
   href?: string;
-  target?: "_blank" | "_self";
+  target?: HTMLAttributes<"a">["target"];
   color?: "blue" | "white";
 }
 

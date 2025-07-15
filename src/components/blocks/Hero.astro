@@ -29,14 +29,23 @@ import Title from "../Title.astro";
 
     <div class="flex justify-stretch items-center">
       <div class="w-full h-screen flex flex-col justify-center pb-12">
-        <div class="flex relative flex-col col-start-1 -col-end-1">
+        <div
+          class="flex relative flex-col col-start-1 -col-end-1 text-indigo-dark"
+        >
           <AnimationFade>
-            <Title size="xxl">Il profumo</Title>
+            <Title size="xxl" tag="h1">Il profumo</Title>
           </AnimationFade>
 
-          <div class="ml-auto row-start-2">
+          <div class="ml-auto row-start-2 inline-flex flex-col">
+            <div class="ml-auto -mb-8">
+              <AnimationFade>
+                <Title size="sm" tag="h2" className="leading-none"
+                  >di Berta Corvi</Title
+                >
+              </AnimationFade>
+            </div>
             <AnimationFade>
-              <Title size="xxl"
+              <Title size="xxl" tag="h1"
                 >dell’<i class="text-blue-royal">Universo</i></Title
               >
             </AnimationFade>

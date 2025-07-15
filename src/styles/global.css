@@ -4,6 +4,7 @@
   --font-sans: "Inter Variable", sans-serif;
   --font-serif: "Castoro", sans-serif;
 
+  --color-*: initial;
   --color-indigo-dark: #2b274c;
   --color-blue-royal: #2a3f86;
   --color-olive-soft: #bfc64d;

@@ -21,46 +21,68 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
   />
   <Container>
     <div data-horizontal-scroll-section>
-      <div data-horizontal-scroll-container>
-        <div class="flex items-center h-screen p-0 w-[500vw] gap-96">
-          <div data-horizontal-scroll class="max-w-[680px]">
-            <TextStarText
-              items={["Universo e stelle", "Teoria del tutto e scienza"]}
-            />
-            <Title size="md">
-              <AnimationTextAppear>
-                Il romanzo esplora il cosmo e i misteri dell’universo. Si ispira
-                alle ricerche di Nassim Haramein e alla fisica quantistica.
-              </AnimationTextAppear>
-            </Title>
+      <div class="w-[300vw] pt-[100px]">
+        <div
+          class="flex items-center h-screen p-0 gap-96"
+          data-horizontal-scroll-container
+        >
+          <div
+            data-horizontal-scroll
+            class="basis-[100vw] grow-0 shrink-0"
+            style="background: red"
+          >
+            <div class="max-w-[680px]">
+              <TextStarText
+                items={["Universo e stelle", "Teoria del tutto e scienza"]}
+              />
+              <Title size="md">
+                <AnimationTextAppear>
+                  Il romanzo esplora il cosmo e i misteri dell’universo. Si
+                  ispira alle ricerche di Nassim Haramein e alla fisica
+                  quantistica.
+                </AnimationTextAppear>
+              </Title>
+            </div>
           </div>
 
-          <div data-horizontal-scroll class="max-w-[680px] translate-y-[30%]">
-            <TextStarText
-              items={[
-                "Destino e consapevolezza",
-                "Profumi e percezione sensoriale",
-              ]}
-            />
-            <Title size="md">
-              La protagonista ha un talento speciale legato agli odori. È alla
-              ricerca del senso della propria esistenza.
-            </Title>
+          <div
+            data-horizontal-scroll
+            class="basis-[100vw] grow-0 shrink-0"
+            style="background: blue"
+          >
+            <div class="max-w-[680px] translate-y-[30%]">
+              <TextStarText
+                items={[
+                  "Destino e consapevolezza",
+                  "Profumi e percezione sensoriale",
+                ]}
+              />
+              <Title size="md">
+                La protagonista ha un talento speciale legato agli odori. È alla
+                ricerca del senso della propria esistenza.
+              </Title>
+            </div>
           </div>
 
-          <div data-horizontal-scroll class="max-w-[680px] -translate-y-[40%]">
-            <TextStarText
-              items={[
-                "Spiritualità e antiche civiltà",
-                "Futurismo e innovazione",
-              ]}
-            />
-            <Title size="md">
-              Il libro tocca temi legati all’Egitto e ai simboli esoterici come
-              il
-              <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo che
-              rappresenti l’universo.
-            </Title>
+          <div
+            data-horizontal-scroll
+            class="basis-[100vw] grow-0 shrink-0"
+            style="background: green"
+          >
+            <div class="max-w-[680px] -translate-y-[40%]">
+              <TextStarText
+                items={[
+                  "Spiritualità e antiche civiltà",
+                  "Futurismo e innovazione",
+                ]}
+              />
+              <Title size="md">
+                Il libro tocca temi legati all’Egitto e ai simboli esoterici
+                come il
+                <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo che
+                rappresenti l’universo.
+              </Title>
+            </div>
           </div>
         </div>
       </div>
@@ -71,7 +93,6 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
 <script>
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
-
   gsap.registerPlugin(ScrollTrigger);
 
   const panels = gsap.utils.toArray("[data-horizontal-scroll]");

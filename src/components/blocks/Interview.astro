@@ -9,11 +9,23 @@ import Title from "../Title.astro";
     <Container size="sm">
       <div class="space-y-8">
         <AnimationFadeY>
-          <Title uppercase size="xl">Intervista a<br /> Nassim Haramein</Title>
+          <div data-speed="0.90">
+            <Title uppercase size="xl">Intervista a<br /> Nassim Haramein</Title
+            >
+          </div>
         </AnimationFadeY>
 
         <AnimationFadeY>
-          <div style="background-color: #D9D9D9;" class="aspect-video bg-">
+          <div class="aspect-video" data-speed="1.25">
+            <iframe
+              class="w-full h-full block"
+              width="1920"
+              height="1080"
+              src="https://www.youtube.com/embed/rijznJjegIU?si=Z6weGFs2vZA1pgXD"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
           </div>
         </AnimationFadeY>
       </div>

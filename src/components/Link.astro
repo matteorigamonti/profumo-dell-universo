@@ -1,7 +1,9 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 interface Props {
   href?: string;
-  target?: "_blank" | "_self";
+  target?: HTMLAttributes<"a">["target"];
 }
 
 const { href = "#", target = "_self" } = Astro.props;

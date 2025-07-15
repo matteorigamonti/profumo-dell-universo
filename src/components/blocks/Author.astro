@@ -3,10 +3,8 @@ import Picture from "astro/components/Picture.astro";
 import bertaCorviRead from "../../assets/berta-corvi-read-original.jpg";
 import Container from "../Container.astro";
 import AnimationFadeY from "../animations/AnimationFadeY.astro";
-import ActionButtonGhost from "../ActionButtonGhost.astro";
 import Title from "../Title.astro";
 import AnimationFade from "../animations/AnimationFade.astro";
-import Star from "../Star.astro";
 import ButtonLine from "../ButtonLine.astro";
 ---
 
@@ -38,7 +36,7 @@ import ButtonLine from "../ButtonLine.astro";
               formats={["avif", "webp", "jpg"]}
               height={550}
               quality={100}
-              class="-rotate-[10deg] lg:-translate-x-6"
+              class="lg:-translate-x-6 origin-center -rotate-[10deg]"
             />
           </div>
         </AnimationFade>

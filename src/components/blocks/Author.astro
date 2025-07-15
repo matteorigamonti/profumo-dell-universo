@@ -22,12 +22,14 @@ import ButtonLine from "../ButtonLine.astro";
           <Title tag="h2" size="xxl">Berta Corvi</Title>
         </AnimationFadeY>
       </div>
+    </Container>
 
+    <Container>
       <div class="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_2fr]">
         <AnimationFade>
           <div
             data-scroll-image
-            class="-rotate-[10deg] -translate-x-6 max-lg:flex items-center justify-center max-lg:mt-14"
+            class="max-lg:flex items-center justify-center max-lg:mt-14"
           >
             <Picture
               src={bertaCorviRead}
@@ -36,6 +38,7 @@ import ButtonLine from "../ButtonLine.astro";
               formats={["avif", "webp", "jpg"]}
               height={550}
               quality={100}
+              class="-rotate-[10deg] lg:-translate-x-6"
             />
           </div>
         </AnimationFade>

@@ -4,7 +4,6 @@ import bgScroll from "../../assets/bg-scroll-original.png";
 import Container from "../Container.astro";
 import TextStarText from "../TextStarText.astro";
 import Title from "../Title.astro";
-import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
 ---
 
 <section
@@ -19,37 +18,29 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
     height={1080}
     class="object-cover object-center absolute inset-0 opacity-50 size-full"
   />
-  <Container>
+  <Container size="xl">
     <div data-horizontal-scroll-section>
       <div class="w-[300vw] pt-[100px]">
         <div
-          class="flex items-center h-screen p-0 gap-96"
+          class="flex items-center h-screen p-0"
           data-horizontal-scroll-container
         >
-          <div
-            data-horizontal-scroll
-            class="basis-[100vw] grow-0 shrink-0"
-            style="background: red"
-          >
+          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
             <div class="max-w-[680px]">
               <TextStarText
                 items={["Universo e stelle", "Teoria del tutto e scienza"]}
               />
               <Title size="md">
-                <AnimationTextAppear>
+                <div data-text>
                   Il romanzo esplora il cosmo e i misteri dell’universo. Si
                   ispira alle ricerche di Nassim Haramein e alla fisica
                   quantistica.
-                </AnimationTextAppear>
+                </div>
               </Title>
             </div>
           </div>
 
-          <div
-            data-horizontal-scroll
-            class="basis-[100vw] grow-0 shrink-0"
-            style="background: blue"
-          >
+          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
             <div class="max-w-[680px] translate-y-[30%]">
               <TextStarText
                 items={[
@@ -58,17 +49,15 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
                 ]}
               />
               <Title size="md">
-                La protagonista ha un talento speciale legato agli odori. È alla
-                ricerca del senso della propria esistenza.
+                <div data-text>
+                  La protagonista ha un talento speciale legato agli odori. È
+                  alla ricerca del senso della propria esistenza.
+                </div>
               </Title>
             </div>
           </div>
 
-          <div
-            data-horizontal-scroll
-            class="basis-[100vw] grow-0 shrink-0"
-            style="background: green"
-          >
+          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
             <div class="max-w-[680px] -translate-y-[40%]">
               <TextStarText
                 items={[
@@ -77,10 +66,12 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
                 ]}
               />
               <Title size="md">
-                Il libro tocca temi legati all’Egitto e ai simboli esoterici
-                come il
-                <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo che
-                rappresenti l’universo.
+                <div data-text>
+                  Il libro tocca temi legati all’Egitto e ai simboli esoterici
+                  come il
+                  <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo
+                  che rappresenti l’universo.
+                </div>
               </Title>
             </div>
           </div>
@@ -93,19 +84,20 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
 <script>
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
+  import SplitText from "gsap/SplitText";
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
   const panels = gsap.utils.toArray("[data-horizontal-scroll]");
 
-  gsap.to("[data-horizontal-scroll-container]", {
-    xPercent: -100 * (panels.length - 1),
+  const scrollHorizontal = gsap.to("[data-horizontal-scroll-container]", {
+    xPercent: -100 * (panels.length - 2),
     ease: "none",
     scrollTrigger: {
       trigger: "[data-horizontal-scroll-section]",
       pin: true,
       scrub: 1,
       markers: false,
-      start: "top+=10% top",
+      start: "top top",
       end: () =>
         "+=" +
         (
@@ -115,4 +107,32 @@ import AnimationTextAppear from "../animations/AnimationTextAppear.astro";
         ).offsetWidth,
     },
   });
+
+  gsap.utils
+    .toArray("[data-horizontal-scroll]")
+    .forEach((horizontalScroll, i) => {
+      let text = (horizontalScroll as HTMLElement)?.querySelector(
+        "[data-text]"
+      );
+      if (!text) return;
+
+      // Split the text into words
+
+      let split = SplitText.create(text as HTMLElement, {
+        type: "words",
+        linesClass: "line",
+      });
+
+      gsap.from(split.words, {
+        scrollTrigger: {
+          ...(i !== 0 ? { containerAnimation: scrollHorizontal } : {}),
+          trigger: horizontalScroll as HTMLElement,
+          markers: false,
+        },
+        opacity: 0,
+        duration: 2,
+        ease: "sine.out",
+        stagger: 0.1,
+      });
+    });
 </script>

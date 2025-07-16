@@ -1,5 +1,7 @@
 ---
 import ActionButtonGhost from "../ActionButtonGhost.astro";
+import AnimationFade from "../animations/AnimationFade.astro";
+import AnimationFadeY from "../animations/AnimationFadeY.astro";
 import Container from "../Container.astro";
 import Star from "../Star.astro";
 import Title from "../Title.astro";
@@ -10,33 +12,39 @@ import Title from "../Title.astro";
     <div
       class="flex flex-col lg:flex-row items-center justify-between gap-y-16 gap-x-8"
     >
-      <button
-        dahlia-trigger
-        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-2 lg:order-1"
-      >
-        <Title size="xl">Dahlia</Title>
-        <ActionButtonGhost />
-      </button>
+      <AnimationFade>
+        <button
+          dahlia-trigger
+          class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-2 lg:order-1"
+        >
+          <Title size="xl">Dahlia</Title>
+          <ActionButtonGhost />
+        </button>
+      </AnimationFade>
 
-      <div
-        class="flex items-center gap-4 justify-around order-1 lg:order-2 basis-full"
-      >
-        <Star fill="blue" size={24} />
+      <AnimationFadeY>
+        <div
+          class="flex items-center gap-4 justify-around order-1 lg:order-2 basis-full"
+        >
+          <Star fill="blue" size={24} />
 
-        <p class="uppercase text-indigo-dark text-xxs font-medium">
-          I protagonisti
-        </p>
+          <p class="uppercase text-indigo-dark text-xxs font-medium">
+            I protagonisti
+          </p>
 
-        <Star fill="blue" size={24} />
-      </div>
+          <Star fill="blue" size={24} />
+        </div>
+      </AnimationFadeY>
 
-      <button
-        nassim-trigger
-        class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-3"
-      >
-        <Title size="xl">Nassim</Title>
-        <ActionButtonGhost />
-      </button>
+      <AnimationFade>
+        <button
+          nassim-trigger
+          class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer order-3"
+        >
+          <Title size="xl">Nassim</Title>
+          <ActionButtonGhost />
+        </button>
+      </AnimationFade>
     </div>
   </Container>
 </section>

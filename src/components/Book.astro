@@ -1,0 +1,53 @@
+---
+import Picture from "astro/components/Picture.astro";
+import book from "../assets/book.png";
+---
+
+<div data-speed="1.3">
+  <div data-move-container class="lg:relative inset-y-0 lg:max-w-1/2">
+    <div data-move-element>
+      <Picture
+        loading={"eager"}
+        formats={["avif", "webp"]}
+        src={book}
+        alt={"Il profumo dell’Universo"}
+        width={1600}
+        height={1600}
+      />
+    </div>
+  </div>
+
+  <script>
+    import { gsap } from "gsap";
+
+    const container = document.querySelector(
+      "[data-move-container]"
+    ) as HTMLElement;
+    const element = document.querySelector(
+      "[data-move-element]"
+    ) as HTMLElement;
+
+    container.addEventListener("mousemove", (e) => {
+      const bounds = container.getBoundingClientRect();
+
+      // Coordinate relative al container
+      let x = e.clientX - bounds.left;
+      let y = e.clientY - bounds.top;
+
+      // Limiti per non far uscire la element
+      const maxX = bounds.width - element.offsetWidth;
+      const maxY = bounds.height - element.offsetHeight;
+
+      x = Math.max(0, Math.min(x, maxX));
+      y = Math.max(0, Math.min(y, maxY));
+
+      // Muovo la element
+      gsap.to(element, {
+        x: x,
+        y: y,
+        duration: 2,
+        ease: "power3.out",
+      });
+    });
+  </script>
+</div>

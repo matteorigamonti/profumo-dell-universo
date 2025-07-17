@@ -1,9 +1,37 @@
 ---
 import "swiper/css";
 import Container from "../Container.astro";
-import ARTICLES from "../../mocks/articles.json";
 import Title from "../Title.astro";
 import Link from "../Link.astro";
+
+const ARTICLES = [
+  {
+    date: "13/04/2025",
+    title:
+      "Il profumo dell’Universo” - Un viaggio tra scienza, mistero e fragranza: il primo romanzo di Berta Corvi",
+    image: "/images/article1.jpg",
+    link: "https://www.tuttoperlei.it/2025/02/09/il-profumo-delluniverso-un-viaggio-tra-scienza-mistero-e-fragranza-il-primo-romanzo-di-berta-corvi/",
+  },
+  {
+    date: "13/04/2025",
+    title: "Il Profumo dell'Universo: il romanzo di Berta Corvi",
+    image: "/images/article1.jpg",
+    link: "https://www.notizieedintorni.it/il-profumo-delluniverso-il-romanzo-di-berta-corvi/",
+  },
+  {
+    date: "13/04/2025",
+    title:
+      "Berta Corvi: quando scienza e poesia si incontrano nel “Profumo dell’Universo”",
+    image: "/images/article1.jpg",
+    link: "https://www.corrieredellospettacolo.net/2025/06/28/berta-corvi-quando-scienza-e-poesia-si-incontrano-nel-profumo-delluniverso/?amp=1",
+  },
+  {
+    date: "13/04/2025",
+    title: "Premio Aromata, menzione a Berta Corvi",
+    image: "/images/article1.jpg",
+    link: "https://www.premioaromata.com/home",
+  },
+];
 ---
 
 <section class="pb-44 overflow-x-hidden">

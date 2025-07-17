@@ -13,6 +13,7 @@
   --color-cream: #eae7e1;
   --color-tan: #ae9281;
   --color-tan-light: #d3c7ac;
+  --color-blue-pale: #e1e6f4;
   --color-white: #fff;
   --color-black: #000;
 
@@ -26,7 +27,10 @@
   --text-xxs: 20px;
   --text-xxxs: 14px;
 
+  /* --drop-shadow-fixed-section: 0px -11px 82.5px 0 rgba(0, 0, 0, 0.1); */
+
   --animate-breath: breath 2s ease-in-out infinite;
+
   @keyframes breath {
     0%,
     100% {
@@ -40,6 +44,17 @@
 
 html {
   font-family: var(--font-sans);
+}
+
+.filter-fixed-section-container {
+  filter: drop-shadow(0px -11px 82.5px #0000001a);
+}
+
+.filter-fixed-section-child {
+  mask-image: url("/mask-fixed.svg");
+  mask-position: top center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 
 .bg-body {

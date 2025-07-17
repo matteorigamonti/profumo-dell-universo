@@ -5,47 +5,52 @@ import Title from "../Title.astro";
 
 <div
   dahlia-section
-  class="fixed inset-0 bg-body-container z-50 translate-y-full transition-transform duration-1000 overflow-y-auto py-16 md:flex flex-col justify-center"
+  class="fixed inset-x-0 bottom-0 z-50 translate-y-full transition-transform duration-1000 dahlia-section filter-fixed-section-container h-[95vh]"
 >
-  <Container>
-    <div class="flex flex-col gap-y-10">
-      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4">
-        <Title size="xs"
-          ><i class="text-sand-light">Dahlia</i> è una giovane donna dallo sguardo
-          intenso e misterioso, capace di percepire ciò che sfugge agli altri.</Title
-        >
+  <div
+    class="bg-body-container py-16 md:flex flex-col justify-center filter-fixed-section-child h-full"
+  >
+    <Container>
+      <div class="flex flex-col gap-y-10">
+        <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4">
+          <Title size="xs"
+            ><i class="text-clay-warm">Dahlia</i> è una giovane donna dallo sguardo
+            intenso e misterioso, capace di percepire ciò che sfugge agli altri.</Title
+          >
 
-        <p>
-          Nata in Egitto e adottata in Francia, vive il dualismo di due culture
-          e custodisce dentro di sé il desiderio profondo di risalire alle sue
-          origini. Il suo nome richiama il fiore della vita, simbolo che guida
-          il suo destino e si intreccia con i segreti dell’universo.
-        </p>
-        <p>
-          Dotata di un olfatto eccezionale e di una sensibilità fuori dal
-          comune, Dahlia è una talentuosa creatrice di profumi: per lei ogni
-          essenza racconta una storia legata al cosmo, una vibrazione invisibile
-          tra scienza e spirito.
-        </p>
+          <p>
+            Nata in Egitto e adottata in Francia, vive il dualismo di due
+            culture e custodisce dentro di sé il desiderio profondo di risalire
+            alle sue origini. Il suo nome richiama il fiore della vita, simbolo
+            che guida il suo destino e si intreccia con i segreti dell’universo.
+          </p>
+          <p>
+            Dotata di un olfatto eccezionale e di una sensibilità fuori dal
+            comune, Dahlia è una talentuosa creatrice di profumi: per lei ogni
+            essenza racconta una storia legata al cosmo, una vibrazione
+            invisibile tra scienza e spirito.
+          </p>
+        </div>
+
+        <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4 ml-auto">
+          <Title size="xs">
+            L’incontro con <i class="text-sand-light">Nassim Haramein</i>,
+            scienziato visionario, dà inizio a un viaggio in cui la passione per
+            le stelle e per la conoscenza si fonde con il mistero della
+            creazione.</Title
+          >
+
+          <p>
+            Dietro la sua eleganza si cela una forza interiore silenziosa,
+            capace di trasformare il dolore in bellezza. Guidata da una potente
+            intuizione, Dahlia si apre agli antichi saperi e alle verità
+            dimenticate, divenendo custode di una fragranza unica: il profumo
+            dell’universo.
+          </p>
+        </div>
       </div>
-
-      <div class="md:max-w-[480px] w-full text-indigo-dark space-y-4 ml-auto">
-        <Title size="xs">
-          L’incontro con <i class="text-sand-light">Nassim Haramein</i>,
-          scienziato visionario, dà inizio a un viaggio in cui la passione per
-          le stelle e per la conoscenza si fonde con il mistero della creazione.</Title
-        >
-
-        <p>
-          Dietro la sua eleganza si cela una forza interiore silenziosa, capace
-          di trasformare il dolore in bellezza. Guidata da una potente
-          intuizione, Dahlia si apre agli antichi saperi e alle verità
-          dimenticate, divenendo custode di una fragranza unica: il profumo
-          dell’universo.
-        </p>
-      </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </div>
 
 <script>

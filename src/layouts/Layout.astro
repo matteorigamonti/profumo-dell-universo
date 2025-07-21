@@ -42,5 +42,40 @@ import FixedCharacterNassim from "../components/blocks/FixedCharacterNassim.astr
       smooth: 1,
       effects: true,
     });
+
+    // Button effects
+    const buttons = document.querySelectorAll("[data-button-hover]");
+    const magnetoStrength = 50;
+
+    buttons.forEach((button) => {
+      button.addEventListener("mousemove", (e) => {
+        const event = e as MouseEvent;
+        const boundBox = button.getBoundingClientRect();
+        const newX =
+          (event.clientX - boundBox.left) /
+            (button as HTMLElement).offsetWidth -
+          0.5;
+        const newY =
+          (event.clientY - boundBox.top) /
+            (button as HTMLElement).offsetHeight -
+          0.5;
+
+        gsap.to(button, {
+          x: newX * magnetoStrength,
+          y: newY * magnetoStrength,
+          duration: 1,
+          ease: "power4.out",
+        });
+      });
+
+      button.addEventListener("mouseleave", () => {
+        gsap.to(button, {
+          x: 0,
+          y: 0,
+          duration: 1,
+          ease: "elastic.out",
+        });
+      });
+    });
   </script>
 </html>

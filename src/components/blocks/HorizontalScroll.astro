@@ -4,82 +4,100 @@ import bgScroll from "../../assets/bg-scroll-original.png";
 import Container from "../Container.astro";
 import TextStarText from "../TextStarText.astro";
 import Title from "../Title.astro";
+
+/* style={`mask-image: url('/mask.svg');`} */
 ---
 
-<section
-  data-pin-end-trigger
-  style={`mask-image: url('/mask.svg'); `}
-  class="bg-linear-to-t from-blue-royal to-indigo-dark text-white relative overflow-hidden mask-center mask-no-repeat mask-cover"
->
-  <Picture
-    alt=""
-    src={bgScroll}
-    width={1920}
-    height={1080}
-    class="object-cover object-center absolute inset-0 opacity-50 size-full"
-  />
-  <Container size="xl">
-    <div data-horizontal-scroll-section>
-      <div class="w-[300vw] pt-[100px]">
-        <div
-          class="flex items-center h-screen p-0"
-          data-horizontal-scroll-container
-        >
-          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-            <div class="max-w-[680px]">
-              <TextStarText
-                items={["Universo e stelle", "Teoria del tutto e scienza"]}
-              />
-              <Title size="md">
-                <div data-text>
-                  Il romanzo esplora il cosmo e i misteri dell’universo. Si
-                  ispira alle ricerche di Nassim Haramein e alla fisica
-                  quantistica.
-                </div>
-              </Title>
-            </div>
-          </div>
+<div class="relative">
+  <div
+    class="mask-top mask-cover h-[13.3vw] w-full absolute top-[0] z-1 -translate-y-[99%]"
+    style={`mask-image: url('/export-exclude-top.svg');`}
+  >
+    <div class="bg-indigo-dark absolute inset-0 size-full">
+      <Picture
+        alt=""
+        src={bgScroll}
+        width={1920}
+        height={5080}
+        class="object-cover object-center absolute inset-0 size-full opacity-50"
+      />
+    </div>
+  </div>
 
-          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-            <div class="max-w-[680px] translate-y-[30%]">
-              <TextStarText
-                items={[
-                  "Destino e consapevolezza",
-                  "Profumi e percezione sensoriale",
-                ]}
-              />
-              <Title size="md">
-                <div data-text>
-                  La protagonista ha un talento speciale legato agli odori. È
-                  alla ricerca del senso della propria esistenza.
-                </div>
-              </Title>
+  <section
+    data-pin-end-trigger
+    class="bg-linear-to-t from-blue-royal to-indigo-dark text-blue-pale relative overflow-hidden mask-center mask-no-repeat mask-cover"
+  >
+    <Picture
+      alt=""
+      src={bgScroll}
+      width={1920}
+      height={5080}
+      class="object-cover object-center absolute inset-0 opacity-50 size-full"
+    />
+    <Container>
+      <div data-horizontal-scroll-section>
+        <div class="w-[260vw] pt-[100px]">
+          <div
+            class="flex items-center h-screen p-0"
+            data-horizontal-scroll-container
+          >
+            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+              <div class="max-w-[680px]">
+                <TextStarText
+                  items={["Universo e stelle", "Teoria del tutto e scienza"]}
+                />
+                <Title size="md">
+                  <div data-text>
+                    Il romanzo esplora il cosmo e i misteri dell’universo. Si
+                    ispira alle ricerche di Nassim Haramein e alla fisica
+                    quantistica.
+                  </div>
+                </Title>
+              </div>
             </div>
-          </div>
 
-          <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-            <div class="max-w-[680px] -translate-y-[40%]">
-              <TextStarText
-                items={[
-                  "Spiritualità e antiche civiltà",
-                  "Futurismo e innovazione",
-                ]}
-              />
-              <Title size="md">
-                <div data-text>
-                  Il libro tocca temi legati all’Egitto e ai simboli esoterici
-                  come il
-                  <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo
-                  che rappresenti l’universo.
-                </div>
-              </Title>
+            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+              <div class="max-w-[680px] -translate-y-[100%]">
+                <TextStarText
+                  items={[
+                    "Destino e consapevolezza",
+                    "Profumi e percezione sensoriale",
+                  ]}
+                />
+                <Title size="md">
+                  <div data-text>
+                    La protagonista ha un talento speciale legato agli odori. È
+                    alla ricerca del senso della propria esistenza.
+                  </div>
+                </Title>
+              </div>
+            </div>
+
+            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+              <div class="max-w-[680px] ranslate-y-[50%]">
+                <TextStarText
+                  items={[
+                    "Spiritualità e antiche civiltà",
+                    "Futurismo e innovazione",
+                  ]}
+                />
+                <Title size="md">
+                  <div data-text>
+                    Il libro tocca temi legati all’Egitto e ai simboli esoterici
+                    come il
+                    <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo
+                    che rappresenti l’universo.
+                  </div>
+                </Title>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </Container>
-</section>
+    </Container>
+  </section>
+</div>
 
 <script>
   import gsap from "gsap";

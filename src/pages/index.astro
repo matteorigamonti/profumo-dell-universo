@@ -11,11 +11,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Hero />
-  <BookShortDescription />
-  <HorizontalScroll />
+  <div class="bg-body-container">
+    <Hero />
+    <BookShortDescription />
+    <HorizontalScroll />
+  </div>
 
-  <div class="relative">
+  <div class="relative bg-body-container">
     <Characters />
     <Author />
     <Interview />

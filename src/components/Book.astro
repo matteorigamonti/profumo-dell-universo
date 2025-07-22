@@ -4,8 +4,11 @@ import book from "../assets/book.png";
 ---
 
 <div data-speed="1.3">
-  <div data-move-container class="lg:relative inset-y-0 lg:max-w-1/2">
-    <div data-move-element>
+  <div data-move-container class="lg:relative inset-y-0 lg:max-w-1/2 h-[400px]">
+    <div
+      data-move-element
+      class="absolute pointer-events-none bg-indigo-dark translate-1/2"
+    >
       <Picture
         loading={"eager"}
         formats={["avif", "webp"]}
@@ -29,6 +32,7 @@ import book from "../assets/book.png";
 
     container.addEventListener("mousemove", (e) => {
       const bounds = container.getBoundingClientRect();
+      console.log(bounds);
 
       // Coordinate relative al container
       let x = e.clientX - bounds.left;
@@ -45,7 +49,7 @@ import book from "../assets/book.png";
       gsap.to(element, {
         x: x,
         y: y,
-        duration: 2,
+        duration: 3,
         ease: "power3.out",
       });
     });

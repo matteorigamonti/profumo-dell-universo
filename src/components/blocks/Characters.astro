@@ -1,57 +1,73 @@
 ---
+import Picture from "astro/components/Picture.astro";
 import ActionButtonGhost from "../ActionButtonGhost.astro";
 import AnimationFade from "../animations/AnimationFade.astro";
 import AnimationFadeY from "../animations/AnimationFadeY.astro";
 import Container from "../Container.astro";
 import Star from "../Star.astro";
 import Title from "../Title.astro";
+import smokeDefault from "../../assets/smoke-cut.jpg";
 ---
 
-<section class="min-h-screen grid place-items-center">
-  <Container>
-    <div
-      class="flex flex-col lg:flex-row items-center justify-between gap-y-16 gap-x-8"
-    >
-      <div class="order-2 lg:order-1">
-        <AnimationFade>
-          <button
-            dahlia-trigger
-            class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
-          >
-            <Title size="xl">Dahlia</Title>
-            <ActionButtonGhost />
-          </button>
-        </AnimationFade>
+<div class="relative">
+  <div
+    class="mask-center mask-no-repeat mask-cover h-[100px] w-full absolute -top-[90px] bg-body-container"
+    style={`mask-image: url('/export-exclude-bottom.svg');`}
+  >
+  </div>
+
+  <Picture
+    src={smokeDefault}
+    alt=""
+    class="mix-blend-multiply absolute inset-0 -top-[100px] w-[120%] object-contain object-top pointer-events-none opacity-40"
+  />
+  <section class="min-h-screen grid place-items-center">
+    <Container>
+      <div
+        class="flex flex-col lg:flex-row items-center justify-between gap-y-16 gap-x-8"
+      >
+        <div class="order-2 lg:order-1">
+          <AnimationFade>
+            <button
+              dahlia-trigger
+              data-=""
+              class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+            >
+              <Title size="xl">Dahlia</Title>
+              <ActionButtonGhost />
+            </button>
+          </AnimationFade>
+        </div>
+
+        <div class="w-full order-1 lg:order-2">
+          <AnimationFadeY>
+            <div class="flex items-center gap-4 justify-around basis-full">
+              <Star fill="blue" size={24} />
+
+              <p class="uppercase text-indigo-dark text-xxs font-medium">
+                I protagonisti
+              </p>
+
+              <Star fill="blue" size={24} />
+            </div>
+          </AnimationFadeY>
+        </div>
+
+        <div class="order-3">
+          <AnimationFade>
+            <button
+              nassim-trigger
+              class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
+            >
+              <Title size="xl">Nassim</Title>
+              <ActionButtonGhost />
+            </button>
+          </AnimationFade>
+        </div>
       </div>
-
-      <div class="w-full order-1 lg:order-2">
-        <AnimationFadeY>
-          <div class="flex items-center gap-4 justify-around basis-full">
-            <Star fill="blue" size={24} />
-
-            <p class="uppercase text-indigo-dark text-xxs font-medium">
-              I protagonisti
-            </p>
-
-            <Star fill="blue" size={24} />
-          </div>
-        </AnimationFadeY>
-      </div>
-
-      <div class="order-3">
-        <AnimationFade>
-          <button
-            nassim-trigger
-            class="inline-flex flex-col items-center text-indigo-dark gap-4 group cursor-pointer"
-          >
-            <Title size="xl">Nassim</Title>
-            <ActionButtonGhost />
-          </button>
-        </AnimationFade>
-      </div>
-    </div>
-  </Container>
-</section>
+    </Container>
+  </section>
+</div>
 
 <script>
   const body = document.querySelector("body") as HTMLElement;

@@ -37,23 +37,29 @@ const ARTICLES = [
 <section class="pb-44 overflow-x-hidden">
   <Container size="lg">
     <!-- Slider main container -->
-    <div class="swiper !overflow-visible">
+    <div class="swiper !overflow-visible size-full">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         {
           ARTICLES.map((article) => (
-            <div class="swiper-slide text-indigo-dark space-y-4">
-              {/* <Picture
+            <div class="swiper-slide text-indigo-dark">
+              <div class="flex flex-col justify-between gap-4 h-[420px]">
+                {/* <Picture
                 alt={article.title}
                 src={article.image}
                 width={354}
                 height={271}
               /> */}
-              <div class="aspect-[354/271]  w-full h-[271px] bg-[#E1E6F4] size-full" />
-              <Title size="xxs">{article.title}</Title>
-              <Link target="_blank" href={article.link}>
-                Leggi l'articolo
-              </Link>
+                <div class="space-y-4 grow shrink basis-full">
+                  <div class="aspect-[354/271] w-full h-[271px] bg-[#E1E6F4] size-full" />
+                  <Title size="xxs">{article.title}</Title>
+                </div>
+                <div class="mt-auto">
+                  <Link target="_blank" href={article.link}>
+                    Leggi l'articolo
+                  </Link>
+                </div>
+              </div>
             </div>
           ))
         }

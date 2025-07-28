@@ -1,4 +1,6 @@
 ---
+import { Picture } from "astro:assets";
+import bgExclusion from "../assets/bg-end-exclusion.png";
 import Author from "../components/blocks/Author.astro";
 import BookShortDescription from "../components/blocks/BookShortDescription.astro";
 import Characters from "../components/blocks/Characters.astro";
@@ -19,9 +21,22 @@ import Layout from "../layouts/Layout.astro";
 
   <div class="relative bg-body-container">
     <Characters />
-    <Author />
-    <Interview />
-    <SliderArticles />
-    <Footer />
+    <div class="relative">
+      <div class="absolute inset-0 pointer-events-none">
+        <Picture
+          loading={"eager"}
+          alt=""
+          src={bgExclusion}
+          width={2000}
+          height={4000}
+          class="object-cover object-top absolute inset-0 size-full mix-blend-exclusion"
+        />
+      </div>
+
+      <Author />
+      <Interview />
+      <SliderArticles />
+      <Footer />
+    </div>
   </div>
 </Layout>

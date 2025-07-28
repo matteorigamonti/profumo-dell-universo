@@ -9,7 +9,7 @@ interface Props {
 const { color = "yellow" } = Astro.props as Props;
 ---
 
-<div class="absolute inset-0 h-screen w-screen -z-40">
+<div class="absolute inset-0 h-screen w-screen z-0 pointer-events-none">
   <div class="absolute" data-speed="clamp(0.8)" style="top: 90%; left: 34%; ">
     <AnimationPulse>
       <Star fill={color} size={35} />

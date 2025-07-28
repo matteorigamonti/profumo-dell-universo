@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import bgExclusion from "../assets/bg-end-exclusion.png";
 import Author from "../components/blocks/Author.astro";
 import BookShortDescription from "../components/blocks/BookShortDescription.astro";
 import Characters from "../components/blocks/Characters.astro";
@@ -25,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
         <Picture
           loading={"eager"}
           alt=""
-          src="/bg-end-exclusion.png"
+          src={bgExclusion.src}
           width={2000}
           height={4000}
           class="object-cover object-top absolute inset-0 size-full mix-blend-exclusion"

@@ -6,6 +6,7 @@ interface Props {
   weight?: "normal" | "bold";
   className?: string;
   uppercase?: boolean;
+  target?: string;
 }
 
 const {
@@ -15,11 +16,13 @@ const {
   weight = "normal",
   className = "",
   uppercase = false,
+  target = "",
 } = Astro.props;
 const Tag = tag;
 ---
 
 <Tag
+  data-target={target ? target : undefined}
   class:list={[
     "font-serif leading-tight",
     className,

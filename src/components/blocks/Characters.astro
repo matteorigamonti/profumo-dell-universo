@@ -1,5 +1,4 @@
 ---
-import Picture from "astro/components/Picture.astro";
 import ActionButtonGhost from "../ActionButtonGhost.astro";
 import AnimationFade from "../animations/AnimationFade.astro";
 import AnimationFadeY from "../animations/AnimationFadeY.astro";
@@ -7,6 +6,7 @@ import Container from "../Container.astro";
 import Star from "../Star.astro";
 import Title from "../Title.astro";
 import smokeDefault from "../../assets/smoke-cut.jpg";
+import Picture from "astro/components/Picture.astro";
 ---
 
 <div class="relative">
@@ -17,7 +17,9 @@ import smokeDefault from "../../assets/smoke-cut.jpg";
   </div>
 
   <Picture
-    src={smokeDefault.src}
+    width={1920}
+    height={1080}
+    src={smokeDefault}
     alt=""
     class="mix-blend-multiply absolute inset-0 -top-[100px] w-[120%] object-contain object-top pointer-events-none opacity-40"
   />

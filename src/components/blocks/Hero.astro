@@ -9,7 +9,7 @@ import StarsSky from "../StarsSky.astro";
 import Title from "../Title.astro";
 ---
 
-<div class="overflow-hidden relative">
+<div class="overflow-hidden relative" data-book-hover-container>
   <Container>
     <StarsSky />
 
@@ -53,7 +53,6 @@ import Title from "../Title.astro";
           <!-- <Book /> -->
 
           <div
-            data-book-hover
             class="lg:absolute inset-y-0 lg:max-w-1/2 lg:translate-y-[40%] lg:translate-x-[5%] scale-[1.7]"
           >
             <Picture
@@ -63,6 +62,7 @@ import Title from "../Title.astro";
               alt={"Il profumo dell’Universo"}
               width={1600}
               height={1600}
+              data-book-hover
             />
           </div>
         </div>
@@ -85,7 +85,7 @@ import Title from "../Title.astro";
               dell'Universo reclama la sua voce.
             </p>
 
-            <div>
+            <div class="inline-block">
               <Link href="https://www.amazon.it/dp/B0DK65H4MT" target="_blank"
                 >Acquista su Amazon</Link
               >
@@ -100,10 +100,13 @@ import Title from "../Title.astro";
 <script>
   import gsap from "gsap";
 
+  const bookContainer = document.querySelector(
+    "[data-book-hover-container]"
+  ) as HTMLElement;
   const book = document.querySelector("[data-book-hover]") as HTMLElement;
-  const magnetoStrengthBook = 50;
+  const magnetoStrengthBook = 30;
 
-  book.addEventListener("mousemove", (e) => {
+  bookContainer.addEventListener("mousemove", (e) => {
     const event = e as MouseEvent;
     const boundBox = book.getBoundingClientRect();
     const newX =

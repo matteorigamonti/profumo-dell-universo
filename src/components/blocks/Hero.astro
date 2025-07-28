@@ -17,7 +17,7 @@ import Title from "../Title.astro";
 
     <div class="mix-blend-multiply">
       <div
-        class="bg-tan-light w-full h-screen absolute inset-0"
+        class="bg-tan-light w-full h-screen absolute inset-0 z-0"
         style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);"
         data-speed="0.6"
       >
@@ -36,29 +36,25 @@ import Title from "../Title.astro";
         <div
           class="flex relative flex-col col-start-1 -col-end-1 text-indigo-dark"
         >
-          <AnimationFade>
-            <Title size="xxl" tag="h1">Il profumo</Title>
-          </AnimationFade>
+          <Title size="xxl" tag="h1">Il profumo</Title>
 
           <div class="ml-auto row-start-2 inline-flex flex-col">
             <div class="ml-auto -mb-8">
-              <AnimationFade>
-                <Title size="sm" tag="h2" className="leading-none"
-                  >di Berta Corvi</Title
-                >
-              </AnimationFade>
-            </div>
-            <AnimationFade>
-              <Title size="xxl" tag="h1"
-                >dell’<i class="text-blue-royal">Universo</i></Title
+              <Title size="sm" tag="h2" className="leading-none"
+                >di Berta Corvi</Title
               >
-            </AnimationFade>
+            </div>
+
+            <Title size="xxl" tag="h1"
+              >dell’<i class="text-blue-royal">Universo</i></Title
+            >
           </div>
 
           <!-- <Book /> -->
 
           <div
-            class="lg:absolute inset-y-0 lg:max-w-1/2 lg:translate-y-[40%] lg:translate-x-[5%] scale-[1.7] pointer-events-none"
+            data-book-hover
+            class="lg:absolute inset-y-0 lg:max-w-1/2 lg:translate-y-[40%] lg:translate-x-[5%] scale-[1.7]"
           >
             <Picture
               loading={"eager"}
@@ -100,3 +96,35 @@ import Title from "../Title.astro";
     </div>
   </Container>
 </div>
+
+<script>
+  import gsap from "gsap";
+
+  const book = document.querySelector("[data-book-hover]") as HTMLElement;
+  const magnetoStrengthBook = 50;
+
+  book.addEventListener("mousemove", (e) => {
+    const event = e as MouseEvent;
+    const boundBox = book.getBoundingClientRect();
+    const newX =
+      (event.clientX - boundBox.left) / (book as HTMLElement).offsetWidth - 0.5;
+    const newY =
+      (event.clientY - boundBox.top) / (book as HTMLElement).offsetHeight - 0.5;
+
+    gsap.to(book, {
+      x: newX * magnetoStrengthBook,
+      y: newY * magnetoStrengthBook,
+      duration: 4,
+      ease: "power4.out",
+    });
+  });
+
+  book.addEventListener("mouseleave", () => {
+    gsap.to(book, {
+      x: 0,
+      y: 0,
+      duration: 4,
+      ease: "elastic.out",
+    });
+  });
+</script>

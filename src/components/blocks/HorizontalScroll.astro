@@ -15,10 +15,11 @@ import Title from "../Title.astro";
   >
     <div class="bg-indigo-dark absolute inset-0 size-full">
       <Picture
+        loading={"eager"}
         alt=""
         src={bgScroll}
-        width={1920}
-        height={5080}
+        width={2000}
+        height={1080}
         class="object-cover object-center absolute inset-0 size-full opacity-50"
       />
     </div>
@@ -28,13 +29,62 @@ import Title from "../Title.astro";
     data-pin-end-trigger
     class="bg-linear-to-t from-blue-royal to-indigo-dark text-blue-pale relative overflow-hidden mask-center mask-no-repeat mask-cover"
   >
-    <Picture
-      alt=""
-      src={bgScroll}
-      width={1920}
-      height={5080}
-      class="object-cover object-center absolute inset-0 opacity-50 size-full"
-    />
+    <div class="grid grid-rows-6 absolute inset-0 size-full">
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center relative inset-0 opacity-50 size-full"
+      />
+
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center relative inset-0 opacity-50 size-full"
+      />
+
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center relative inset-0 opacity-50 size-full"
+      />
+
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center relative inset-0 opacity-50 size-full"
+      />
+
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center relative inset-0 opacity-50 size-full"
+      />
+
+      <Picture
+        alt=""
+        loading={"eager"}
+        src={bgScroll}
+        width={2000}
+        height={1080}
+        class="object-cover object-center inset-0 opacity-50 size-full"
+      />
+    </div>
+
     <Container>
       <div data-horizontal-scroll-section>
         <div class="w-[260vw] pt-[100px]">

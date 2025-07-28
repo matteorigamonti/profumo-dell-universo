@@ -3,32 +3,33 @@ import "swiper/css";
 import Container from "../Container.astro";
 import Title from "../Title.astro";
 import Link from "../Link.astro";
+import article1 from "../../assets/articles/articolo-1.jpg";
+import article2 from "../../assets/articles/articolo-2.jpg";
+import article3 from "../../assets/articles/articolo-3.jpg";
+import article4 from "../../assets/articles/articolo-4.jpg";
+import Picture from "astro/components/Picture.astro";
 
 const ARTICLES = [
   {
-    date: "13/04/2025",
     title:
       "Il profumo dell’Universo” - Un viaggio tra scienza, mistero e fragranza: il primo romanzo di Berta Corvi",
-    image: "/images/article1.jpg",
+    image: article1,
     link: "https://www.tuttoperlei.it/2025/02/09/il-profumo-delluniverso-un-viaggio-tra-scienza-mistero-e-fragranza-il-primo-romanzo-di-berta-corvi/",
   },
   {
-    date: "13/04/2025",
     title: "Il Profumo dell'Universo: il romanzo di Berta Corvi",
-    image: "/images/article1.jpg",
+    image: article2,
     link: "https://www.notizieedintorni.it/il-profumo-delluniverso-il-romanzo-di-berta-corvi/",
   },
   {
-    date: "13/04/2025",
     title:
       "Berta Corvi: quando scienza e poesia si incontrano nel “Profumo dell’Universo”",
-    image: "/images/article1.jpg",
+    image: article3,
     link: "https://www.corrieredellospettacolo.net/2025/06/28/berta-corvi-quando-scienza-e-poesia-si-incontrano-nel-profumo-delluniverso/?amp=1",
   },
   {
-    date: "13/04/2025",
     title: "Premio Aromata, menzione a Berta Corvi",
-    image: "/images/article1.jpg",
+    image: article4,
     link: "https://www.premioaromata.com/home",
   },
 ];
@@ -44,14 +45,15 @@ const ARTICLES = [
           ARTICLES.map((article) => (
             <div class="swiper-slide text-indigo-dark">
               <div class="flex flex-col justify-between gap-4 h-[420px]">
-                {/* <Picture
-                alt={article.title}
-                src={article.image}
-                width={354}
-                height={271}
-              /> */}
-                <div class="space-y-4 grow shrink basis-full">
-                  <div class="aspect-[354/271] w-full h-[271px] bg-[#E1E6F4] size-full" />
+                <Picture
+                  alt={article.title}
+                  src={article.image}
+                  width={354}
+                  height={271}
+                  class="aspect-[354/271] w-full h-[271px] bg-[#E1E6F4] size-full"
+                />
+
+                <div class="grow shrink basis-full">
                   <Title size="xxs">{article.title}</Title>
                 </div>
                 <div class="mt-auto">

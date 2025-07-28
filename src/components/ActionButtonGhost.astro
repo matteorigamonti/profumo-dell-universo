@@ -39,6 +39,8 @@ const { color = "blue" } = Astro.props;
 </span>
 
 <script>
+  import { gsap } from "gsap";
+
   // Button effects
   const buttons = document.querySelectorAll("[data-button-hover]");
   const magnetoStrength = 50;

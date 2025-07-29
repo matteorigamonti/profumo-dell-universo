@@ -7,27 +7,29 @@ import StarsSky from "../StarsSky.astro";
 import Title from "../Title.astro";
 ---
 
-<div class="lg:overflow-hidden relative" data-book-hover-container>
+<div class="relative" data-book-hover-container>
   <Container size="hero">
     <div class="absolute inset-0 overflow-scroll">
       <StarsSky />
     </div>
 
-    <div class="absolute inset-0 bg-cream/80 mix-blend-multiply"></div>
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-cream/80 mix-blend-multiply"></div>
 
-    <div class="mix-blend-multiply">
-      <div
-        class="bg-tan-light w-full h-screen absolute inset-0 z-0 hidden lg:block"
-        style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);"
-        data-speed="0.6"
-      >
-      </div>
+      <div class="mix-blend-multiply">
+        <div
+          class="bg-tan-light w-full h-screen absolute inset-0 z-0 hidden lg:block"
+          style="clip-path: polygon(0 50%, 0% 100%, 90% 100%);"
+          data-speed="0.6"
+        >
+        </div>
 
-      <div
-        class="bg-tan w-full h-screen absolute inset-0 hidden lg:block"
-        style="clip-path: polygon(0 60%, 0% 100%, 80% 100%);"
-        data-speed="0.8"
-      >
+        <div
+          class="bg-tan w-full h-screen absolute inset-0 hidden lg:block"
+          style="clip-path: polygon(0 60%, 0% 100%, 80% 100%);"
+          data-speed="0.8"
+        >
+        </div>
       </div>
     </div>
 

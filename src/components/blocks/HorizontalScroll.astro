@@ -92,12 +92,12 @@ import Title from "../Title.astro";
 
     <Container>
       <div data-horizontal-scroll-section>
-        <div class="w-[260vw] pt-[100px]">
+        <div class="w-[200vw] pt-[100px]">
           <div
-            class="flex items-center h-screen p-0"
+            class="flex items-center h-screen gap-[10vw] p-0"
             data-horizontal-scroll-container
           >
-            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+            <div data-horizontal-scroll class="basis-auto grow-0 shrink-0">
               <div class="max-w-[680px] flex flex-col gap-4">
                 <TextStarText
                   items={["Universo e stelle", "Teoria del tutto e scienza"]}
@@ -112,7 +112,7 @@ import Title from "../Title.astro";
               </div>
             </div>
 
-            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+            <div data-horizontal-scroll class="basis-auto grow-0 shrink-0">
               <div
                 class="max-w-[680px] -translate-y-[25vh] flex flex-col gap-4"
               >
@@ -131,7 +131,7 @@ import Title from "../Title.astro";
               </div>
             </div>
 
-            <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
+            <div data-horizontal-scroll class="basis-auto grow-0 shrink-0">
               <div class="max-w-[680px] translate-y-[10vh] flex flex-col gap-4">
                 <TextStarText
                   items={[
@@ -183,6 +183,7 @@ import Title from "../Title.astro";
     },
   });
 
+  // Animate each horizontal scroll section
   gsap.utils
     .toArray("[data-horizontal-scroll]")
     .forEach((horizontalScroll, i) => {
@@ -191,8 +192,21 @@ import Title from "../Title.astro";
       );
       if (!text) return;
 
-      // Split the text into words
+      gsap.fromTo(
+        horizontalScroll as HTMLElement,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            ...(i !== 0 ? { containerAnimation: scrollHorizontal } : {}),
+            trigger: horizontalScroll as HTMLElement,
+            markers: false,
+            toggleActions: "play none restart none",
+          },
+        }
+      );
 
+      // Split the text into words
       let split = SplitText.create(text as HTMLElement, {
         type: "words",
         linesClass: "line",

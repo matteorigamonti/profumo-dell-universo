@@ -73,7 +73,7 @@ import Title from "../Title.astro";
           </div>
         </div>
 
-        <AnimationFadeY>
+        <div data-book-description>
           <div class="flex flex-col gap-4 ml-auto lg:w-[422px]">
             <!-- <div class="flex items-center flex-wrap gap-4">
               <Button>Italiano</Button>
@@ -92,12 +92,12 @@ import Title from "../Title.astro";
             </p>
 
             <div class="inline-block">
-              <Link href="https://www.amazon.it/dp/B0DK65H4MT" target="_blank"
-                >Acquista su Amazon</Link
-              >
+              <Link href="https://www.amazon.it/dp/B0DK65H4MT" target="_blank">
+                Acquista su Amazon
+              </Link>
             </div>
           </div>
-        </AnimationFadeY>
+        </div>
       </div>
     </div>
   </Container>
@@ -107,22 +107,11 @@ import Title from "../Title.astro";
   import gsap from "gsap";
 
   // Data Speed Adjustment
-  const isMobile = window.innerWidth < 768; // o usare matchMedia
-  const speedPath1 = document.querySelector("[data-speed-path-1]");
-  if (speedPath1) {
-    speedPath1.setAttribute("data-speed", isMobile ? "0" : "0.6");
-  }
-
-  const speedPath2 = document.querySelector("[data-speed-path-2]");
-  if (speedPath2) {
-    speedPath2.setAttribute("data-speed", isMobile ? "0" : "0.8");
-  }
 
   // Text animation
-  // onst textElements = document.querySelectorAll('[data-target="book-title"]');
   const textTl = gsap.timeline({
     defaults: {
-      duration: 1,
+      duration: 2.5,
       ease: "power4.out",
     },
   });
@@ -130,16 +119,33 @@ import Title from "../Title.astro";
   textTl
     .fromTo(
       '[data-target="book-title-1"]',
-      { opacity: 0 },
-      { opacity: 1, delay: 0.2 }
+      { opacity: 0, translateY: 10 },
+      { opacity: 1, translateY: 0, delay: 0.2 }
     )
-    .fromTo('[data-target="book-title-2"]', { opacity: 0 }, { opacity: 1 })
+    .fromTo(
+      '[data-target="book-title-2"]',
+      { opacity: 0, translateY: -10 },
+      { opacity: 1, translateY: 0 },
+      "<"
+    )
     .fromTo(
       '[data-target="book-title-3"]',
       { opacity: 0, translateY: 10 },
-      { opacity: 1, translateY: 0 }
+      { opacity: 1, translateY: 0 },
+      "<"
     )
-    .fromTo("[data-book-hover]", { opacity: 0 }, { opacity: 1 });
+    .fromTo(
+      "[data-book-hover]",
+      { opacity: 0, scale: 1.1 },
+      { opacity: 1, scale: 1 },
+      "<"
+    )
+    .fromTo(
+      "[data-book-description]",
+      { yPercent: -20, opacity: 0, duration: 2 },
+      { yPercent: 0, opacity: 1 },
+      "<"
+    );
 
   // Book hover effect
   const bookContainer = document.querySelector(

@@ -7,7 +7,7 @@ const { target = "" } = Astro.props;
 ---
 
 <button
-  data-target={target}
+  data-target={target || undefined}
   class="rounded-full cursor-pointer border border-indigo-dark bg-transparent text-indigo-dark hover:bg-indigo-dark hover:text-white transition-colors duration-500 size-10 inline-grid place-items-center"
 >
   <svg

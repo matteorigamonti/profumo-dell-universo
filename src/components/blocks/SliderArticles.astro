@@ -3,34 +3,39 @@ import "swiper/css";
 import Container from "../Container.astro";
 import Title from "../Title.astro";
 import Link from "../Link.astro";
-import article1 from "../../assets/articles/articolo-1.jpg";
-import article2 from "../../assets/articles/articolo-2.jpg";
-import article3 from "../../assets/articles/articolo-3.jpg";
-import article4 from "../../assets/articles/articolo-4.jpg";
+// import article1 from "../../assets/articles/articolo-1.jpg";
+// import article2 from "../../assets/articles/articolo-2.jpg";
+// import article3 from "../../assets/articles/articolo-3.jpg";
+// import article4 from "../../assets/articles/articolo-4.jpg";
 import Picture from "astro/components/Picture.astro";
+import Star from "../Star.astro";
+// import { date } from "astro:schema";
 
 const ARTICLES = [
   {
-    title:
-      "Il profumo dell’Universo” - Un viaggio tra scienza, mistero e fragranza: il primo romanzo di Berta Corvi",
-    image: article1,
-    link: "https://www.tuttoperlei.it/2025/02/09/il-profumo-delluniverso-un-viaggio-tra-scienza-mistero-e-fragranza-il-primo-romanzo-di-berta-corvi/",
+    date: "2025",
+    title: "Premio Aromata, menzione a Berta Corvi",
+    link: "https://www.premioaromata.com/home",
   },
   {
-    title: "Il Profumo dell'Universo: il romanzo di Berta Corvi",
-    image: article2,
-    link: "https://www.notizieedintorni.it/il-profumo-delluniverso-il-romanzo-di-berta-corvi/",
-  },
-  {
+    date: "28/06/2025",
     title:
       "Berta Corvi: quando scienza e poesia si incontrano nel “Profumo dell’Universo”",
-    image: article3,
+    // image: article3,
     link: "https://www.corrieredellospettacolo.net/2025/06/28/berta-corvi-quando-scienza-e-poesia-si-incontrano-nel-profumo-delluniverso/?amp=1",
   },
   {
-    title: "Premio Aromata, menzione a Berta Corvi",
-    image: article4,
-    link: "https://www.premioaromata.com/home",
+    date: "09/02/2025",
+    title:
+      "Il profumo dell’Universo” - Un viaggio tra scienza, mistero e fragranza: il primo romanzo di Berta Corvi",
+    // image: article1,
+    link: "https://www.tuttoperlei.it/2025/02/09/il-profumo-delluniverso-un-viaggio-tra-scienza-mistero-e-fragranza-il-primo-romanzo-di-berta-corvi/",
+  },
+  {
+    date: "31/01/2025",
+    title: "Il Profumo dell'Universo: il romanzo di Berta Corvi",
+    // image: article2,
+    link: "https://www.notizieedintorni.it/il-profumo-delluniverso-il-romanzo-di-berta-corvi/",
   },
 ];
 ---
@@ -43,19 +48,19 @@ const ARTICLES = [
       <div class="swiper-wrapper">
         {
           ARTICLES.map((article) => (
-            <div class="swiper-slide text-indigo-dark">
-              <div class="flex flex-col justify-between gap-4 h-[420px]">
-                <Picture
-                  formats={["avif", "webp", "jpg"]}
-                  alt={article.title}
-                  src={article.image}
-                  width={354}
-                  height={271}
-                  class="aspect-[354/271] w-full h-[271px] bg-[#E1E6F4] size-full"
-                />
+            <div class="swiper-slide h-full !aspect-auto">
+              <div class="flex group flex-col justify-between gap-4 h-full duration-500 text-indigo-dark border transition-colors rounded-lg p-4 hover:bg-blue-royal/10 active:bg-blue-royal/20 hover:border-transparent">
+                <div class="uppercase items-center flex gap-4 font-medium text-xxxs">
+                  {article.date}
+
+                  <div class="h-px w-full grow shrink basis-0 bg-indigo-dark" />
+                  <div class="group-hover:animate-breath">
+                    <Star fill="red" />
+                  </div>
+                </div>
 
                 <div class="grow shrink basis-full">
-                  <Title size="xxs">{article.title}</Title>
+                  <Title size="sm">{article.title}</Title>
                 </div>
                 <div class="mt-auto">
                   <Link target="_blank" href={article.link}>

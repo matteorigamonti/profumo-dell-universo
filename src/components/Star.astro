@@ -1,7 +1,7 @@
 ---
 interface Props {
   size?: number;
-  fill?: "yellow" | "blue" | "dark-blue";
+  fill?: "yellow" | "blue" | "dark-blue" | "red";
 }
 const { size = 24, fill = "yellow" } = Astro.props;
 ---
@@ -17,6 +17,7 @@ const { size = 24, fill = "yellow" } = Astro.props;
       {
         "fill-olive-soft": fill === "yellow",
         "fill-blue-royal": fill === "blue",
+        "fill-red": fill === "red",
         "fill-indigo-dark": fill === "dark-blue",
       },
     ]}

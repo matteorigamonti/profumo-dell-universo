@@ -1,4 +1,6 @@
 ---
+import Picture from "astro/components/Picture.astro";
+import lpLogo from "../../assets/lp-logo.png";
 import ButtonLine from "../ButtonLine.astro";
 import Container from "../Container.astro";
 import StarsSky from "../StarsSky.astro";
@@ -33,12 +35,14 @@ import Title from "../Title.astro";
     <div class="py-4 border-t border-white/20">
       <div class="flex items-center justify-between flex-wrap">
         <span class="uppercase">© Berta Corvi</span>
-        <a
-          href="https://www.behance.net/ellepianigiani"
-          target="_blank"
-          class="uppercase text-[11px] hover:after:bg-white after:bg-transparent relative after:absolute after:-bottom-1 after:inset-x-0 after:h-px after:transition-colors"
-          >design di luisa pianigiani</a
-        >
+        <a href="https://www.behance.net/ellepianigiani" target="_blank">
+          <Picture
+            src={lpLogo}
+            alt="Design by Luisa Pianigiani"
+            width={66}
+            height={42}
+          />
+        </a>
       </div>
     </div>
   </Container>

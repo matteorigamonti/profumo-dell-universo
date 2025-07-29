@@ -98,7 +98,7 @@ import Title from "../Title.astro";
             data-horizontal-scroll-container
           >
             <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-              <div class="max-w-[680px]">
+              <div class="max-w-[680px] flex flex-col gap-4">
                 <TextStarText
                   items={["Universo e stelle", "Teoria del tutto e scienza"]}
                 />
@@ -113,7 +113,9 @@ import Title from "../Title.astro";
             </div>
 
             <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-              <div class="max-w-[680px] -translate-y-[25vh]">
+              <div
+                class="max-w-[680px] -translate-y-[25vh] flex flex-col gap-4"
+              >
                 <TextStarText
                   items={[
                     "Destino e consapevolezza",
@@ -130,7 +132,7 @@ import Title from "../Title.astro";
             </div>
 
             <div data-horizontal-scroll class="basis-[100vw] grow-0 shrink-0">
-              <div class="max-w-[680px] translate-y-[10vh]">
+              <div class="max-w-[680px] translate-y-[10vh] flex flex-col gap-4">
                 <TextStarText
                   items={[
                     "Spiritualità e antiche civiltà",

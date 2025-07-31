@@ -94,65 +94,74 @@ import Title from "../Title.astro";
 
     <Container>
       <div data-horizontal-scroll-section>
-        <div class="w-[2400px] pt-[100px]">
+        <div class="w-[300vw] lg:w-[160vw] lg:pt-[100px]">
           <div
             class="flex items-center h-screen p-0 gap-8"
             data-horizontal-scroll-container
           >
             <div data-horizontal-scroll>
               <div
-                class="max-w-[680px] w-[calc(100vw_-_2rem)] flex flex-col gap-4"
+                class="w-[calc(100vw_-_2rem)] lg:w-[calc(50vw_-_2rem)] text-center md:text-left flex flex-col gap-4"
               >
-                <TextStarText
-                  items={["Universo e stelle", "Teoria del tutto e scienza"]}
-                />
-                <Title size="md">
-                  <div data-text>
-                    Il romanzo esplora il cosmo e i misteri dell’universo. Si
-                    ispira alle ricerche di Nassim Haramein e alla fisica
-                    quantistica.
-                  </div>
-                </Title>
+                <div class="max-w-[680px]">
+                  <TextStarText
+                    mobileDirection="vertical"
+                    items={["Universo e stelle", "Teoria del tutto e scienza"]}
+                  />
+                  <Title size="md">
+                    <div data-text>
+                      Il romanzo esplora il cosmo e i misteri dell’universo. Si
+                      ispira alle ricerche di Nassim Haramein e alla fisica
+                      quantistica.
+                    </div>
+                  </Title>
+                </div>
               </div>
             </div>
 
             <div data-horizontal-scroll>
               <div
-                class="max-w-[680px] w-[calc(100vw_-_2rem)] -translate-y-[25vh] flex flex-col gap-4"
+                class="w-[calc(100vw_-_2rem)] lg:w-[calc(50vw_-_2rem)] text-center md:text-left md:-translate-y-[25vh] flex flex-col gap-4"
               >
-                <TextStarText
-                  items={[
-                    "Destino e consapevolezza",
-                    "Profumi e percezione sensoriale",
-                  ]}
-                />
-                <Title size="md">
-                  <div data-text>
-                    La protagonista ha un talento speciale legato agli odori. È
-                    alla ricerca del senso della propria esistenza.
-                  </div>
-                </Title>
+                <div class="max-w-[680px]">
+                  <TextStarText
+                    mobileDirection="vertical"
+                    items={[
+                      "Destino e consapevolezza",
+                      "Profumi e percezione sensoriale",
+                    ]}
+                  />
+                  <Title size="md">
+                    <div data-text>
+                      La protagonista ha un talento speciale legato agli odori.
+                      È alla ricerca del senso della propria esistenza.
+                    </div>
+                  </Title>
+                </div>
               </div>
             </div>
 
             <div data-horizontal-scroll>
               <div
-                class="max-w-[680px] w-[calc(100vw_-_2rem)] translate-y-[10vh] flex flex-col gap-4"
+                class="w-[calc(100vw_-_2rem)] lg:w-[calc(50vw_-_2rem)] text-center md:text-left md:translate-y-[10vh] flex flex-col gap-4"
               >
-                <TextStarText
-                  items={[
-                    "Spiritualità e antiche civiltà",
-                    "Futurismo e innovazione",
-                  ]}
-                />
-                <Title size="md">
-                  <div data-text>
-                    Il libro tocca temi legati all’Egitto e ai simboli esoterici
-                    come il
-                    <i>Fiore della Vita</i>. Nascerà l’idea di creare un profumo
-                    che rappresenti l’universo.
-                  </div>
-                </Title>
+                <div class="max-w-[680px]">
+                  <TextStarText
+                    mobileDirection="vertical"
+                    items={[
+                      "Spiritualità e antiche civiltà",
+                      "Futurismo e innovazione",
+                    ]}
+                  />
+                  <Title size="md">
+                    <div data-text>
+                      Il libro tocca temi legati all’Egitto e ai simboli
+                      esoterici come il
+                      <i>Fiore della Vita</i>. Nascerà l’idea di creare un
+                      profumo che rappresenti l’universo.
+                    </div>
+                  </Title>
+                </div>
               </div>
             </div>
           </div>
@@ -205,6 +214,7 @@ import Title from "../Title.astro";
           opacity: 1,
           scrollTrigger: {
             ...(i !== 0 ? { containerAnimation: scrollHorizontal } : {}),
+            start: "top center",
             trigger: horizontalScroll as HTMLElement,
             markers: false,
             toggleActions: "play none restart none",
@@ -222,8 +232,9 @@ import Title from "../Title.astro";
         scrollTrigger: {
           ...(i !== 0 ? { containerAnimation: scrollHorizontal } : {}),
           trigger: horizontalScroll as HTMLElement,
+          start: "top center",
           markers: false,
-          // toggleActions: "restart none restart none",
+          toggleActions: "play none restart none",
         },
         opacity: 0,
         duration: 2,

@@ -4,12 +4,21 @@ import Star from "./Star.astro";
 interface Props {
   items: string[];
   target?: string;
+  mobileDirection?: "horizontal" | "vertical";
 }
 
-const { items, target = "" } = Astro.props;
+const { items, target = "", mobileDirection = "horizontal" } = Astro.props;
 ---
 
-<div class="inline-flex gap-2 items-center group">
+<div
+  class:list={[
+    "lg:flex-row",
+    {
+      "inline-flex gap-2 items-center group": mobileDirection === "horizontal",
+      "flex flex-col items-center group": mobileDirection === "vertical",
+    },
+  ]}
+>
   {
     items.map((item, index) => (
       <>

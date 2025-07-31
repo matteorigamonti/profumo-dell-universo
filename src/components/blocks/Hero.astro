@@ -9,7 +9,7 @@ import Title from "../Title.astro";
 
 <div class="relative" data-book-hover-container>
   <Container size="hero">
-    <div class="absolute inset-0 overflow-scroll">
+    <div class="absolute inset-0 overflow-hidden">
       <StarsSky />
     </div>
 
@@ -35,7 +35,7 @@ import Title from "../Title.astro";
 
     <div class="flex justify-stretch items-center">
       <div
-        class="w-full lg:h-screen flex flex-col gap-8 lg:gap-0 justify-center pb-[15vw] pt-[5vw]"
+        class="w-full h-screen flex flex-col gap-10 lg:gap-0 justify-center pb-[15vw] pt-[5vw]"
       >
         <div
           class="flex relative flex-col col-start-1 -col-end-1 text-indigo-dark"
@@ -43,7 +43,7 @@ import Title from "../Title.astro";
           <Title target="book-title-1" size="xxxl" tag="h1">Il profumo</Title>
 
           <div class="ml-auto row-start-2 inline-flex flex-col">
-            <div class="ml-auto -mb-8">
+            <div class="ml-auto -mb-8 max-lg:order-2">
               <Title
                 target="book-title-3"
                 size="sm"
@@ -52,7 +52,11 @@ import Title from "../Title.astro";
               >
             </div>
 
-            <Title target="book-title-2" size="xxxl" tag="h1"
+            <Title
+              target="book-title-2"
+              size="xxxl"
+              tag="h1"
+              className="max-lg:order-1"
               >dell’<i class="text-blue-royal">Universo</i></Title
             >
           </div>
@@ -60,7 +64,7 @@ import Title from "../Title.astro";
           <!-- <Book /> -->
 
           <div
-            class="lg:absolute inset-y-0 lg:max-w-1/2 lg:translate-y-[50%] xl:translate-y-[40%] lg:translate-x-[5%] scale-[1.2] xl:scale-[1.7]"
+            class="lg:absolute inset-y-0 lg:max-w-1/2 lg:translate-y-[50%] xl:translate-y-[40%] lg:translate-x-[5%] -translate-x-[5%] scale-[1.5] xl:scale-[1.7]"
           >
             <Picture
               loading={"eager"}

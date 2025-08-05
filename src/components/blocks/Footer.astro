@@ -35,8 +35,64 @@ import Title from "../Title.astro";
 
   <Container size="xl">
     <div class="py-4 border-t border-white/20">
-      <div class="flex items-center justify-between flex-wrap">
-        <span class="uppercase">© Berta Corvi</span>
+      <div class="flex items-center justify-between flex-wrap gap-6 mr-12">
+        <div class="flex flex-wrap gap-4">
+          <span>My Smart École di Berta Corvi</span>
+          <span class="uppercase">P.IVA: 10534520969</span>
+
+          <!-- Privacy Policy -->
+          <a
+            href="https://www.iubenda.com/privacy-policy/12385942"
+            class="iubenda-noiframe iubenda-embed iubenda-noiframe hover:underline"
+            title="Privacy Policy "
+          >
+            Privacy Policy
+          </a>
+          <script is:inline type="text/javascript">
+            (function (w, d) {
+              var loader = function () {
+                var s = d.createElement("script"),
+                  tag = d.getElementsByTagName("script")[0];
+                s.src = "https://cdn.iubenda.com/iubenda.js";
+                tag.parentNode.insertBefore(s, tag);
+              };
+              if (w.addEventListener) {
+                w.addEventListener("load", loader, false);
+              } else if (w.attachEvent) {
+                w.attachEvent("onload", loader);
+              } else {
+                w.onload = loader;
+              }
+            })(window, document);
+          </script>
+
+          <!-- Cookie Policy -->
+          <a
+            href="https://www.iubenda.com/privacy-policy/12385942/cookie-policy"
+            class="iubenda-noiframe iubenda-embed iubenda-noiframe hover:underline"
+            title="Cookie Policy "
+          >
+            Cookie Policy
+          </a>
+          <script is:inline type="text/javascript">
+            (function (w, d) {
+              var loader = function () {
+                var s = d.createElement("script"),
+                  tag = d.getElementsByTagName("script")[0];
+                s.src = "https://cdn.iubenda.com/iubenda.js";
+                tag.parentNode.insertBefore(s, tag);
+              };
+              if (w.addEventListener) {
+                w.addEventListener("load", loader, false);
+              } else if (w.attachEvent) {
+                w.attachEvent("onload", loader);
+              } else {
+                w.onload = loader;
+              }
+            })(window, document);
+          </script>
+        </div>
+
         <a href="https://luisapianigiani.figma.site/" target="_blank">
           <Picture
             src={lpLogo}
